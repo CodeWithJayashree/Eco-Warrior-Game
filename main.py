@@ -1,1 +1,10 @@
-print('Welcome to the Eco-Warrior Game!')
+import time
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+print()
+print('Friends. Yelling. Light. A portal. \nYou startle awake, wildly swinging at nothing as you stumble backwards into a tree trunk. \nYou\'re covered in mud and your breathing is ragged. You swear there was a portal behind you. \nWhere is it now?')
+print('\nYou force your eyes open, taking in your surroundings. A babbling brook. Tiny huts made of straw and twigs. Towering trees. Flowers everywhere. ')
+print('Your panic fades as you stare at this storybook forest. It\'s like you\'ve fallen into a fairytale. \nSomething rough brushed against your cheek. \n \nEverything fades to black.')
+print()
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+time.sleep(5)
+print()
