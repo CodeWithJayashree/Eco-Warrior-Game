@@ -73,3 +73,28 @@ time.sleep(3)
 print('Press Enter to begin your first quest...')
 print()
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+#Now that I have given the play some expoistion, I will start making the quest structure, and some other helper functions to help the game move smoothly
+#The loop should be quest, user input, quest comeplete, user see's garden, if even number fo quests comeplted, they water teh garden, new quest
+#I'm going to start by making a list of emojis called plants. Then, once a quest is completed by the user, an emoji will be added to the garden. 
+plants =['🌼', '🌳', '🌹', '🪻', '🌱','🌸', '🌵', '🍀']
+#Next, I need to make a list of quests, and a quests_complete variable to keep track of how many quests have been completed.
+quests = ['Lights Out! Try to see if you can always remember to turn the lights off when you leave a room. Think you can have 0 lights on by the end of the day?',
+          'Trash Talk! Pick up at least 5 pieces of trash in your neighborhood or local park.',
+          'Recycle Race! Make sure to recycle at least 5 items today. Think you can do more than 10?',
+          'Energy Saver! Try to use less energy today by unplugging electronics when not in use.'
+          'Market Madness! Try to buy at least 1 crop from a local farmer\'s market or local small business today. While you\'re at it, try to avoid buying any meat or animal products.',
+          'Water Watch! Try to use less water today by taking showers instead of baths and turning off the faucet when brushing your teeth!',
+          'Protest Plastic! Try to use less plastic today by using reusable utentils, straws, and bags. Think you can go plastic free for a whole day?',
+          'Transportation Transformation! Try to use less transportation today by walking, biking, or taking public transport. Think you have what it takes to go car free?']
+quests_completed = 0
+garden = []
+#Now, I can make a function that will water the garden. They can only water the garden if they have completed an even number of quests, and if it is above 0.
+def water_garden():
+    if quests_completed > 0 and quests_completed %2 == 0:
+        print('Time to water your garden! 💧💧💧')
+        for plant in garden:
+            print(plant + '✨', end='')
+        print('Your garden is looking beautiful!')
+#Now, I can basically use a while loop to keep the game going until teh user has finished all of the quests. 
+
+    
