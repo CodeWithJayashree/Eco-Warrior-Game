@@ -95,13 +95,13 @@ plants =['🌼', '🌳', '🌹', '🪻', '🌱','🌸', '🌵', '🍀']
 quests = ['Lights Out! Try to see if you can always remember to turn the lights off when you leave a room. Think you can have 0 lights on by the end of the day?',
           'Trash Talk! Pick up at least 5 pieces of trash in your neighborhood or local park.',
           'Recycle Race! Make sure to recycle at least 5 items today. Think you can do more than 10?',
-          'Energy Saver! Try to use less energy today by unplugging electronics when not in use.'
+          'Energy Saver! Try to use less energy today by unplugging electronics when not in use.',
           'Market Madness! Try to buy at least 1 crop from a local farmer\'s market or local small business today. While you\'re at it, try to avoid buying any meat or animal products.',
           'Water Watch! Try to use less water today by taking showers instead of baths and turning off the faucet when brushing your teeth!',
           'Protest Plastic! Try to use less plastic today by using reusable utentils, straws, and bags. Think you can go plastic free for a whole day?',
           'Transportation Transformation! Try to use less transportation today by walking, biking, or taking public transport. Think you have what it takes to go car free?']
 #Now, I will also be making a list of quest explanations, that give the user more information about the quest once they've comepleted it.
-quest_explanations = ['Turning off the lights and making sure home is well insulated helps conserve energy.',
+quest_explanations = ['Turning off the lights and making sure your home is well insulated helps conserve energy.',
                       'Collecting trash helps keep the environment clean and prevents pollution. You can also reduce your waste by using reusable bags, containers, and water bottles.',
                       'Reducing the amount of waste that goes to landfills by reusing and recycling items helps protect the environment.',
                       'Using less energy is a great way to reduce your carbon footprint! You can even switch to renewable energy such as solar panels or wind turbines.',
@@ -116,14 +116,16 @@ complete_messages=['Awesome', 'Well done', 'You did it', 'Amazing work', 'Good j
 #Now, I can make a function that will water the garden. They can only water the garden if they have completed an even number of quests, and if it is above 0.
 def water_garden():
     if quests_completed > 0 and (quests_completed+1) %2 == 0:
-        print('Time to water your garden! 💧💧💧')
+        input('Press enter to water your garden! 💧💧💧')
+        print()
         for plant in garden:
             print(plant + '✨', end='')
         time.sleep(3)
-        print()
+        print('\n')
         print('Your garden is looking beautiful!')
     else:
-        print('You\'re garden is looking great!')
+        print()
+        print('Your garden is looking great!')
 #Well, first, I need to tell the user about sustainability, and how it is important to take care of the enviorment! 
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 print()
@@ -142,6 +144,7 @@ time.sleep(4)
 input('Press enter to continue...')
 print()
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+clear()
 #Now, I can basically use a while loop to keep the game going until the user has finished all of the quests. 
 while quests_completed < len(quests):
     print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
@@ -159,18 +162,21 @@ while quests_completed < len(quests):
         time.sleep(5)
         print(f'You have added a plant to your garden!')
         print()
-        time.sleep(3)
         garden[quests_completed] = plants[quests_completed]
         for i in garden:
             print(i," ", end='')
-        time.sleep(5)
+        print()
+        time.sleep(3)
         print()
         water_garden()
         print()
         quests_completed +=1
+        time.sleep(10)
+        clear()
     else:
         print()
         print('Please type "done", when you are finished. You can do it! ')
+        time.sleep(5)
         clear()
         continue
 
