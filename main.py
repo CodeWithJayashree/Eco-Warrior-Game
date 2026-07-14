@@ -63,7 +63,7 @@ print('She blinks. "I\'ve never heard of it."')
 time.sleep(3)
 print('...')
 time.sleep(8)
-print('By the time you return to the cottage, only one though fills your mind.')
+print('By the time you return to the cottage, only one thought fills your mind.')
 time.sleep(3)
 print('How do I get home?')
 print()
@@ -83,7 +83,7 @@ print('"Really?"')
 time.sleep(3)
 print('He nods.')
 time.sleep(3)
-print('"Long ago, a wizard named Nox was cursed and trapped within his own shadow. \nLegend says that anyone who breaks his curse is granted one wish."')
+print('"Long ago, a wizard named Nox was cursed and trapped within his own shadow. Legend says that anyone who breaks his curse is granted one wish."')
 time.sleep(8)
 print('"So... if I help him..."')
 time.sleep(3)
@@ -93,7 +93,8 @@ print('"...he may send you home."')
 time.sleep(3)
 print('"How?"')
 time.sleep(3)
-print('"You must restore the magical garden. Complete eight quests, and each one will reward you with a magical plant. \nWhen the garden is full, I\'ll brew a potion strong enough to enter the Briarwood. \n There, you can find and defeat Nox."')
+print('"You must restore the magical garden. Complete eight quests, and each one will reward you with a magical plant. \nWhen the garden is full, I\'ll brew a potion strong enough to enter the Briarwood. \n' \
+'There, you can find and defeat Nox."')
 time.sleep(8)
 print('He smiles.')
 print('"Are you ready?"')
@@ -117,10 +118,10 @@ quests = ['Lights Out! Try to see if you can always remember to turn the lights 
 #Now, I will also be making a list of quest explanations, that give the user more information about the quest once they've comepleted it.
 #Adding statistics to these messages will help the user better understand their positive impact!
 quest_explanations = [f'Switching off the lights is a good start, but using energy-efficient LEDs is better, as they consume 75% less energy!',
-                      'Collecting trash keeps the environment clean and prevents pollution. By 2050, an estimated 3.78 billion metric tons of trash will be produced',
+                      'Collecting trash keeps the environment clean and prevents pollution. By 2050, an estimated 3.78 billion metric tons of trash will be produced.'
                       'Did you know that recycling 10 plastic bottles can generate enough electricity to power a laptop for a day?',
                       'Many appliances consume power even when turned off. Unplugging devices like TVs and chargers can conserve energy. ',
-                      'Producing 1 kg of beef generates 60 kg of carbon dioxide, while root vegetables generate only 0.4 kg.',
+                      'Producing 1 kg of beef generates 60 kg of carbon dioxide, while root vegetables only generate 0.4 kg!',
                       'You can save 8 gallons of water by closing the tap while brushing and 45 gallons by taking a shower instead of a bath!',
                       f'Did you know that fast fashion significantly contributes to plastic waste, with 85% of items ending up in landfills?',
                       f'In addition to reducing carbon emissions on average by 67%, biking and walking are great sources of exercise!']
@@ -185,6 +186,10 @@ while quests_completed < len(quests):
         print()
         water_garden()
         print()
+        if quests_completed == 3:
+            print('You\re halfway there! Keep going!')
+        else:
+            pass
         quests_completed +=1
         time.sleep(10)
         clear()
@@ -194,6 +199,20 @@ while quests_completed < len(quests):
         time.sleep(5)
         clear()
         continue
+linebreak()
+print()
+print('Congratulations! You have finished all of the quests and filled your garden!')
+time.sleep(2)
+print(garden)
+linebreak()
+#Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
+#The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
+player_lives = 3
+final_quiz {}
+
+
+
+
 
 
         
