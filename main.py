@@ -5,6 +5,7 @@ def clear():
         os.system('cls')
     else:
         os.system('clear')
+#Made linebreak function to make code cleaner
 def linebreak():
     print('~'*150)
 linebreak()
@@ -109,19 +110,20 @@ quests = ['Lights Out! Try to see if you can always remember to turn the lights 
           'Trash Talk! Pick up at least 5 pieces of trash in your neighborhood or local park.',
           'Recycle Race! Make sure to recycle at least 5 items today. Think you can do more than 10?',
           'Energy Saver! Try to use less energy today by unplugging electronics when not in use.',
-          'Market Madness! Try to buy at least 1 crop from a local farmer\'s market or local small business today. While you\'re at it, try to avoid buying any meat or animal products.',
+          'Meat Madness! Try to avoid buying or consuming any meat or animal products for a day by swapping them out with plant based substitutes.',
           'Water Watch! Try to use less water today by taking showers instead of baths and turning off the faucet when brushing your teeth!',
           'Protest Plastic! Try to use less plastic today by using reusable utentils, straws, and bags. Think you can go plastic free for a whole day?',
           'Transportation Transformation! Try to use less transportation today by walking, biking, or taking public transport. Think you have what it takes to go car free?']
 #Now, I will also be making a list of quest explanations, that give the user more information about the quest once they've comepleted it.
-quest_explanations = ['Turning off the lights and making sure your home is well insulated helps conserve energy.',
-                      'Collecting trash helps keep the environment clean and prevents pollution. You can also reduce your waste by using reusable bags, containers, and water bottles.',
-                      'Reducing the amount of waste that goes to landfills by reusing and recycling items helps protect the environment.',
-                      'Using less energy is a great way to reduce your carbon footprint! You can even switch to renewable energy such as solar panels or wind turbines.',
-                      'Eating seasonal and local produce is a good way to reduce meat consumption and support sustainable farming practices',
-                      'Using less water is a great way to conserve this precious resource. Want to learn more? Visit this site in your browser! https://watercalculator.org/.',
-                      'Single use plastic items harm the environment. If you need to use single use plastic, try to find one that has been recycled before.',
-                      'Using less transportation saves energy and reduces pollution. Carpooling and using public transport are excellent ways to do this!']
+#Adding statistics to these messages will help the user better understand their positive impact!
+quest_explanations = [f'Switching off the lights is a good start, but using energy-efficient LEDs is better, as they consume 75% less energy!',
+                      'Collecting trash keeps the environment clean and prevents pollution. By 2050, an estimated 3.78 billion metric tons of trash will be produced',
+                      'Did you know that recycling 10 plastic bottles can generate enough electricity to power a laptop for a day?',
+                      'Many appliances consume power even when turned off. Unplugging devices like TVs and chargers can conserve energy. ',
+                      'Producing 1 kg of beef generates 60 kg of carbon dioxide, while root vegetables generate only 0.4 kg.',
+                      'You can save 8 gallons of water by closing the tap while brushing and 45 gallons by taking a shower instead of a bath!',
+                      f'Did you know that fast fashion significantly contributes to plastic waste, with 85% of items ending up in landfills?',
+                      f'In addition to reducing carbon emissions on average by 67%, biking and walking are great sources of exercise!']
 quests_completed = 0
 garden = ['_','_','_','_','_','_','_','_']
 #I do need to give them quest completeion messages. I'm going to use a list to give them a different message each time
