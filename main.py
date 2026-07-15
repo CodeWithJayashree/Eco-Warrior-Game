@@ -208,8 +208,17 @@ linebreak()
 #Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
 #The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
 player_lives = 3
-final_quiz {}
-
+final_quiz = {
+                'LED\'s are more energy efficient than normal light bulbs (true/false)': 'true',
+                'Unplugging electronics when not in use wastes up to 10 percent of energy (true/false)': 'false',
+                'Fill in the blank: reduce, ________, recycle': 'reuse',
+                'Fill in the blank: Riding a ________ instead of driving reduces carbon emissions.': 'bike',
+                'Type A or B: Which is more sustainable? A) Using a plastic water bottle. B) Using a reusable water bottle.': 'A',
+                'Type A or B: Which is more sustainable? A) Consuming large amounts of meat and animal products. B) Consuming produce and other vegetables': 'B',
+                'Which one does NOT belong? A) Cardboard boxes B) Old batteries C) Glass jars': 'B',
+                'Which one does NOT belong? A) Fossil fuels B) Hydroelectric C)Solar': 'A',
+            
+            }
 
 
 
