@@ -220,7 +220,17 @@ final_quiz = {
             
             }
 
-
+for key in final_quiz:
+    print(f'Question: {key}')
+    user_answer = input('Type answer here: ').strip().lower()
+    if user_answer == final_quiz[key].strip().lower():
+        print('Correct!')
+    else:
+        print('Incorrect')
+        lives -=1
+        print(f'You now have {lives} lives:', end ='')
+        print(lives*'❤️ ')
+    print()
 
 
 
