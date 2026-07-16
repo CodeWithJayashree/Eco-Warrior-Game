@@ -207,30 +207,54 @@ print(garden)
 linebreak()
 #Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
 #The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
-player_lives = 3
-final_quiz = {
-                'LED\'s are more energy efficient than normal light bulbs (true/false)': 'true',
-                'Unplugging electronics when not in use wastes up to 10 percent of energy (true/false)': 'false',
-                'Fill in the blank: reduce, ________, recycle': 'reuse',
-                'Fill in the blank: Riding a ________ instead of driving reduces carbon emissions.': 'bike',
-                'Type A or B: Which is more sustainable? A) Using a plastic water bottle. B) Using a reusable water bottle.': 'A',
-                'Type A or B: Which is more sustainable? A) Consuming large amounts of meat and animal products. B) Consuming produce and other vegetables': 'B',
-                'Which one does NOT belong? A) Cardboard boxes B) Old batteries C) Glass jars': 'B',
-                'Which one does NOT belong? A) Fossil fuels B) Hydroelectric C)Solar': 'A',
-            
-            }
+lives = 3
+quiz_questions = {
+                'Q1':'LED\'s are more energy efficient than normal light bulbs (true/false)',
+                'Q2':'Unplugging electronics when not in use wastes up to 10 percent of energy (true/false)',
+                'Q3':'Fill in the blank: reduce, ________, recycle',
+                'Q4':'Fill in the blank: Riding a ________ instead of driving reduces carbon emissions.',
+                'Q5':'Type A or B: Which is more sustainable? A) Using a plastic water bottle. B) Using a reusable water bottle.',
+                'Q6':'Type A or B: Which is more sustainable? A) Consuming large amounts of meat and animal products. B) Consuming produce and other vegetables',
+                'Q7':'Which one does NOT belong? A) Cardboard boxes B) Old batteries C) Glass jars',
+                'Q8':'Which one does NOT belong? A) Solar B) Hydroelectric C) Fossil fuels',  
+                }
+#This will check if the user's answer matches the correct answer in the dictionary
+#I realise now that I should probably include more than one way of answering for some of these questions so the user doesn't feel misled. 
+#To do this, I will be making another dictionary with the quiz answers
+quiz_answers = {
+                'Q1':['true','True','t','T','TRUE'],
+                'Q2':['false','False','f','F','FALSE'],
+                'Q3':['reuse','Reuse','REUSE','Re-use','re-use','RE-USE'],
+                'Q4':['bike','BIKE','Bike','bicycle','Bicycle','BICYCLE','scooter','Scooter','SCOOTER','skateboard','Skateboard','SKAETBOARD'],
+                'Q5':['a','A','A)'],
+                'Q6':['a','B','B)'],
+                'Q7':['b','B','B)'],
+                'Q8':['c','C','C)'],
+                }
 
-for key in final_quiz:
-    print(f'Question: {key}')
-    user_answer = input('Type answer here: ').strip().lower()
-    if user_answer == final_quiz[key].strip().lower():
+for question in quiz_questions:
+    print(f'Question: {quiz_questions[question]}')
+    user_answer = input('Type answer here: ').strip()
+    if user_answer in quiz_answers[question]:
         print('Correct!')
     else:
         print('Incorrect')
         lives -=1
-        print(f'You now have {lives} lives:', end ='')
-        print(lives*'❤️ ')
+        if lives == 0:
+            print('You lost! The potion is wearing off, you must retreat!')
+            time.sleep(3)
+            input('Press enter to exit Briarwoods and retrun to Mossy Meadows:')
+            break
+        if lives == 1:
+            print('You are down to your last life! Be careful! Lives: ❤️ ')
+        if lives >=2:
+            print(f'You now have {lives} lives:', end ='')
+            print(lives*'❤️ ')
+    time.sleep(4)
+    clear()
     print()
+
+
 
 
 
