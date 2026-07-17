@@ -1,4 +1,6 @@
 import time
+#Now im going to import thsi so I can later make teh terminal flash whote after brewing teh potion! 
+import sys
 import os
 def clear():
     if os.name == 'nt':
@@ -114,17 +116,17 @@ quests = ['Lights Out! Try to see if you can always remember to turn the lights 
           'Meat Madness! Try to avoid buying or consuming any meat or animal products for a day by swapping them out with plant based substitutes.',
           'Water Watch! Try to use less water today by taking showers instead of baths and turning off the faucet when brushing your teeth!',
           'Protest Plastic! Try to use less plastic today by using reusable utentils, straws, and bags. Think you can go plastic free for a whole day?',
-          'Transportation Transformation! Try to use less transportation today by walking, biking, or taking public transport. Think you have what it takes to go car free?']
+          'Transportation Transformation! Try to use less transportation today by walking, biking, or taking public transport. Think you have what it takes to go car free?',]
 #Now, I will also be making a list of quest explanations, that give the user more information about the quest once they've comepleted it.
 #Adding statistics to these messages will help the user better understand their positive impact!
 quest_explanations = [f'Switching off the lights is a good start, but using energy-efficient LEDs is better, as they consume 75% less energy!',
-                      'Collecting trash keeps the environment clean and prevents pollution. By 2050, an estimated 3.78 billion metric tons of trash will be produced.'
+                      'Collecting trash keeps the environment clean and prevents pollution. By 2050, an estimated 3.78 billion metric tons of trash will be produced.',
                       'Did you know that recycling 10 plastic bottles can generate enough electricity to power a laptop for a day?',
                       'Many appliances consume power even when turned off. Unplugging devices like TVs and chargers can conserve energy. ',
                       'Producing 1 kg of beef generates 60 kg of carbon dioxide, while root vegetables only generate 0.4 kg!',
                       'You can save 8 gallons of water by closing the tap while brushing and 45 gallons by taking a shower instead of a bath!',
                       f'Did you know that fast fashion significantly contributes to plastic waste, with 85% of items ending up in landfills?',
-                      f'In addition to reducing carbon emissions on average by 67%, biking and walking are great sources of exercise!']
+                      f'In addition to reducing carbon emissions on average by 67%, biking and walking are great sources of exercise!',]
 quests_completed = 0
 garden = ['_','_','_','_','_','_','_','_']
 #I do need to give them quest completeion messages. I'm going to use a list to give them a different message each time
@@ -165,7 +167,7 @@ clear()
 while quests_completed < len(quests):
     linebreak()
     print()
-    print(f'Quest {quests_completed+1}: {quests[quests_completed]}:')
+    print(f'Quest {quests_completed+1}: {quests[quests_completed]}')
     print()
     done = input('Type "done" when you\'ve finished the quest! ').strip().lower()
     print()
@@ -187,11 +189,11 @@ while quests_completed < len(quests):
         water_garden()
         print()
         if quests_completed == 3:
-            print('You\re halfway there! Keep going!')
+            print('You\'re halfway there! Keep going!')
         else:
             pass
         quests_completed +=1
-        time.sleep(10)
+        time.sleep(8)
         clear()
     else:
         print()
@@ -202,9 +204,99 @@ while quests_completed < len(quests):
 linebreak()
 print()
 print('Congratulations! You have finished all of the quests and filled your garden!')
-time.sleep(2)
-print(garden)
+time.sleep(3)
+for i in garden:
+    print(i, end ="")
+time.sleep(4)
+print()
 linebreak()
+clear()
+#Now, I will make a function that "brews" a potion using the plants, since that's the next part of the story!
+def potion_brewing():
+    print('꧁✮..........✮꧂')
+    print('"First, we need to gather some rare magic ingredients from my grotto!", says Master Oakley.')
+    time.sleep(2)
+    print('...')
+    time.sleep(4)
+    print('"Aha! I\'ve found what we need. Lets get started!"')
+    time.sleep(2)
+    clear()
+    print('"A touch of toadstool"')
+    print('🍄🍄🍄')
+    time.sleep(2)
+    print('"A dash of lightning. Just a little!')
+    print('⚡️')
+    time.sleep(2)
+    print('"A pinch of fairy dust')
+    print('✨🧚🏻‍♀️✨')
+    time.sleep(2)
+    print('"And some unicorn hair!"')
+    print('🦄🦄🦄')
+    print('"And now, for the most important ingredient. You\'re garden!"')
+    print('You see, those aren\'t just any plants. Together, they become a rare, powerful jewel called a Lux Roboris.')
+    time.sleep(2)
+    count = 0
+    while count <8:
+        print(garden)
+        del garden[-1]
+        time.sleep(1)
+        count +=1
+    gem ='💎'
+    print(gem)
+    print('"Now, to brew the potion. 🪄"')
+    print('cigam noitop lleps'*5)
+    print('cigam noitop LLEPS'*5)
+    print('cigam NOITOP LLEPS'*5)
+    print('CIGAM NOITOP LLEPS!'*5)
+    #I copied the following from Gemini, since I didn't know how to to that on my own
+    sys.stdout.write("\033[2J\033[47m")
+    sys.stdout.flush()
+    time.sleep(0.1)
+    sys.stdout.write("\033[0m\033[2J")
+    sys.stdout.flush()
+    time.sleep(3)
+    potion = '🔮💎🔮💎🔮'
+    print(f'"Here is your potion: {potion}. Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!')
+    time.sleep(3)
+    print('꧁✮..........✮꧂')
+#Now, to make the end sequence of the story before the character enters the Briarwoods (fictional forest where the villan lives)
+linebreak()
+print()
+time.sleep(2)
+print('You did it! You\'re one step closer to finally going back home.')
+time.sleep(2)
+print('You wonder if you\'re friends back home are looking for you.')
+time.sleep(2)
+print('Guess you\'ll find out soon enough.')
+print()
+linebreak()
+time.sleep(3)
+clear()
+linebreak()
+print()
+print('You excitedly tell master Oakley that you have comepleted all of the quests and collected the plants.')
+time.sleep(2)
+print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling.')
+time.sleep(3)
+print('"Now, I will brew a potion to help you enter the Briarwoods, a dangerous, enchanted forest where Nox lives.')
+time.sleep(3)
+print('"Defeating Nox will not be easy. He will ask you some difficult questions that you must answer.')
+time.sleep(3)
+print('"The potion will give you three chances to answer all of the questions to defeat Nox."')
+time.sleep(3)
+print('"Should you succeed..."')
+time.sleep(2)
+print('...')
+time.sleep(3)
+print('...The wish will be mine. I can finally go home!')
+time.sleep(3)
+print('"Let\'s get to work"')
+input('Press enter to brew the potion...')
+potion_brewing
+print()
+input('Press enter to begin the final battle...')
+linebreak()
+clear()
 #Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
 #The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
 lives = 3
