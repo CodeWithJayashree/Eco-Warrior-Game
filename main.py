@@ -1,5 +1,4 @@
 import time
-#Now im going to import thsi so I can later make teh terminal flash whote after brewing teh potion! 
 import sys
 import os
 def clear():
@@ -10,9 +9,21 @@ def clear():
 #Made linebreak function to make code cleaner
 def linebreak():
     print('~'*150)
+#So the gemini terminal flash thing didn't work at all due to how my VS Code editor handles those commands. :(
+#To try and still acheive that effect, I'm just going to make a rectangle of emojis in that color :(
+def flash_white():
+    clear()
+    color = '⬜️'
+    lines = 20 # apparently this is the standard number for now many rows terminal size if you don't know which os
+    columns = 40 # this is apparantly the standard of columns for terminal size if you don't know the os
+    white_block = (color*columns + '\n') * lines
+    print(white_block)
+    sys.stdout.flush()
+    time.sleep(0.2)
 linebreak()
 print()
 time.sleep(3)
+flash_white()
 print('Friends. Yelling. Light. A portal.\n')
 time.sleep(3)
 print('You startle awake, wildly swinging at nothing as you stumble backwards into a tree trunk.\n')
@@ -207,13 +218,24 @@ print('Congratulations! You have finished all of the quests and filled your gard
 time.sleep(3)
 for i in garden:
     print(i, end ="")
-time.sleep(4)
+time.sleep(5)
 print()
 linebreak()
 clear()
 #Now, I will make a function that "brews" a potion using the plants, since that's the next part of the story!
+#So I'm using the same code I did in the flash white function, just changing it to flash purple for the potion making part
+def flash_purple():
+    clear()
+    color = '🟪'
+    lines = 20 # apparently this is the standard number for now many rows terminal size if you don't know which os
+    columns = 40 # this is apparantly the standard of columns for terminal size if you don't know the os
+    purple_block = (color*columns + '\n') * lines
+    print(purple_block)
+    sys.stdout.flush()
+    time.sleep(0.2)
+
 def potion_brewing():
-    print('꧁✮..........✮꧂')
+    print('꧁✮.....................................................✮꧂')
     print('"First, we need to gather some rare magic ingredients from my grotto!", says Master Oakley.')
     time.sleep(2)
     print('...')
@@ -237,53 +259,56 @@ def potion_brewing():
     time.sleep(2)
     count = 0
     while count <8:
-        print(garden)
+        for i in garden:
+            print(i, end ="")
         del garden[-1]
         time.sleep(1)
         count +=1
     gem ='💎'
     print(gem)
     print('"Now, to brew the potion. 🪄"')
+    time.sleep(3)
     print('cigam noitop lleps'*5)
+    time.sleep(3)
     print('cigam noitop LLEPS'*5)
+    time.sleep(2)
     print('cigam NOITOP LLEPS'*5)
+    time.sleep(1)
     print('CIGAM NOITOP LLEPS!'*5)
-    #I copied the following from Gemini, since I didn't know how to to that on my own
-    sys.stdout.write("\033[2J\033[47m")
-    sys.stdout.flush()
-    time.sleep(0.1)
-    sys.stdout.write("\033[0m\033[2J")
-    sys.stdout.flush()
-    time.sleep(3)
+    flash_purple() #added new flash purple function here :)
     potion = '🔮💎🔮💎🔮'
-    print(f'"Here is your potion: {potion}. Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!')
+    print(f'"Here is your potion: {potion}.')
+    print('You have to pour the potion on yourself to be teleported to the Briarwood')
+    time.sleep(2)
+    print(f'Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!')
     time.sleep(3)
-    print('꧁✮..........✮꧂')
+    print('꧁✮.....................................................✮꧂')
+
 #Now, to make the end sequence of the story before the character enters the Briarwoods (fictional forest where the villan lives)
 linebreak()
 print()
-time.sleep(2)
+time.sleep(4)
 print('You did it! You\'re one step closer to finally going back home.')
-time.sleep(2)
+time.sleep(3)
 print('You wonder if you\'re friends back home are looking for you.')
-time.sleep(2)
+time.sleep(3)
 print('Guess you\'ll find out soon enough.')
 print()
 linebreak()
-time.sleep(3)
+time.sleep(4)
 clear()
 linebreak()
 print()
 print('You excitedly tell master Oakley that you have comepleted all of the quests and collected the plants.')
-time.sleep(2)
+time.sleep(3)
 print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling.')
 time.sleep(3)
 print('"Now, I will brew a potion to help you enter the Briarwoods, a dangerous, enchanted forest where Nox lives.')
-time.sleep(3)
+time.sleep(4)
 print('"Defeating Nox will not be easy. He will ask you some difficult questions that you must answer.')
-time.sleep(3)
+time.sleep(4)
 print('"The potion will give you three chances to answer all of the questions to defeat Nox."')
-time.sleep(3)
+time.sleep(4)
 print('"Should you succeed..."')
 time.sleep(2)
 print('...')
@@ -292,11 +317,17 @@ print('...The wish will be mine. I can finally go home!')
 time.sleep(3)
 print('"Let\'s get to work"')
 input('Press enter to brew the potion...')
-potion_brewing
+potion_brewing()
+print('"I\'m gonna miss you! Be careful out there!" says Poppy.')
 print()
 input('Press enter to begin the final battle...')
 linebreak()
 clear()
+#This is the scene where the character enters the Briarwood and finds Nox.
+time.sleep(3)
+linebreak()
+print()
+
 #Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
 #The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
 lives = 3
