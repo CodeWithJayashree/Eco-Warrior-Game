@@ -215,7 +215,6 @@ while quests_completed < len(quests):
 linebreak()
 print()
 print('Congratulations! You have finished all of the quests and filled your garden!')
-time.sleep(3)
 for i in garden:
     print(i, end ="")
 time.sleep(5)
@@ -242,7 +241,6 @@ def potion_brewing():
     time.sleep(4)
     print('"Aha! I\'ve found what we need. Lets get started!"')
     time.sleep(2)
-    clear()
     print('"A touch of toadstool"')
     print('🍄🍄🍄')
     time.sleep(2)
@@ -250,17 +248,18 @@ def potion_brewing():
     print('⚡️')
     time.sleep(2)
     print('"A pinch of fairy dust')
-    print('✨🧚🏻‍♀️✨')
+    print('✨✨✨✨')
     time.sleep(2)
     print('"And some unicorn hair!"')
     print('🦄🦄🦄')
-    print('"And now, for the most important ingredient. You\'re garden!"')
+    print('"And now, for the most important ingredient. You\'re garden!"\n')
     print('You see, those aren\'t just any plants. Together, they become a rare, powerful jewel called a Lux Roboris.')
     time.sleep(2)
     count = 0
     while count <8:
         for i in garden:
             print(i, end ="")
+        print()
         del garden[-1]
         time.sleep(1)
         count +=1
@@ -278,7 +277,7 @@ def potion_brewing():
     flash_purple() #added new flash purple function here :)
     potion = '🔮💎🔮💎🔮'
     print(f'"Here is your potion: {potion}.')
-    print('You have to pour the potion on yourself to be teleported to the Briarwood')
+    print('You have to pour the potion on yourself to be teleported to the Briarwood.')
     time.sleep(2)
     print(f'Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!')
     time.sleep(3)
@@ -327,7 +326,99 @@ clear()
 time.sleep(3)
 linebreak()
 print()
-
+print('You hesitate for just a second.\n')
+time.sleep(2)
+print('Deep breaths.\n')
+time.sleep(2)
+print('You pour the potion on yourself.\n')
+time.sleep(2)
+print('It feels tingly.\n')
+time.sleep(2)
+print('The world is spinning.\n')
+time.sleep(2)
+print('You fall to the ground.\n')
+print()
+linebreak()
+clear()
+time.sleep(3)
+linebreak()
+print()
+print('You hear something rustling.\n')
+time.sleep(2)
+print('You feel the dirt squelch in your palms.\n')
+time.sleep(2)
+print('You force yourself up, head still spinning\n')
+time.sleep(2)
+print('You\'re in the Briarwood. You look around.\n')
+time.sleep(2)
+print('Dead trees, fog, and the unforgiving cold threaten to choke your resolve.\n')
+time.sleep(3)
+print('How do you find Nox?\n')
+time.sleep(2)
+print('Nox! You call out.\n')
+time.sleep(2)
+print('You wander some more, unsure of exactly how you\'re supposed to find him.\n')
+time.sleep(4)
+print('Nox! I\'ve come to free you!\n')
+time.sleep(2)
+print('I\'ve come to...\n')
+time.sleep(2)
+print('WHO DARES TO ENTER MY HOME UNINVITED!\n')
+time.sleep(1)
+print()
+linebreak()
+clear()
+time.sleep(3)
+linebreak()
+print()
+print('The ground shakes as you turn around.\n')
+time.sleep(2)
+print('An impossibly tall shadow looks down at you. Menacing green eyes, purple smoke.\n')
+time.sleep(4)
+print('Are those claws or teeth?\n')
+time.sleep(2)
+print('You shake.\n')
+time.sleep(2)
+print('LEAVE. NOW!\n')
+time.sleep(2)
+print('I\'ve come to free y-\n')
+time.sleep(2)
+print('GET OUT!\n')
+time.sleep(2)
+print('I can help you! I can free you from your curse! \n')
+time.sleep(2)
+print('HA! HUMANS. DELUSIONAL. IMPUSLIVE. I KNOW YOUR TYPE. YOU THINK YOU CAN BEST ME?\n')
+time.sleep(4)
+print('THIS IS YOUR LAST CHANCE.\n')
+time.sleep(2)
+print('I will free you.\n')
+time.sleep(2)
+print('AND WHAT IS IT YOU WISH TO GAIN FROM RELEASING ME FROM MY SHADOW?\n')
+time.sleep(2)
+print('I just want to go home. I want that wish.\n')
+time.sleep(8)
+print('VERY WELL.\n')
+time.sleep(2)
+print('I WILL ASK YOU 8 QUESTIONS. SHOULD YOU ANSWER THEM CORRECTLY, YOU CAN HAVE YOUR WISH.\n')
+print('\n')
+time.sleep(2)
+print('...\n')
+time.sleep(2)
+print('And if I don\'t?\n')
+time.sleep(3)
+print('WHEN YOU FAIL, I WILL FEAST ON YOUR SOUL. IT\'S BEEN QUITE SOMETIME SINCE I HAD A NICE MEAL.\n')
+time.sleep(2)
+print('You remember Master Oakley. And Poppy. They believed in you.\n')
+time.sleep(2)
+print('Alright. I\'ll do it.\n')
+time.sleep(3)
+print('EXCELLENT.')
+print()
+time.sleep(1)
+linebreak()
+clear()
+time.sleep(3)
+linebreak()
 #Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
 #The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
 lives = 3
@@ -354,7 +445,6 @@ quiz_answers = {
                 'Q7':['b','B','B)'],
                 'Q8':['c','C','C)'],
                 }
-
 for question in quiz_questions:
     print(f'Question: {quiz_questions[question]}')
     user_answer = input('Type answer here: ').strip()
@@ -366,25 +456,23 @@ for question in quiz_questions:
         if lives == 0:
             print('You lost! The potion is wearing off, you must retreat!')
             time.sleep(3)
-            input('Press enter to exit Briarwoods and retrun to Mossy Meadows:')
+            print('I\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST. \n')
+            print('You manage to duck in time.\n')
+            input('Press enter to flee Briarwoods:')
             break
         if lives == 1:
-            print('You are down to your last life! Be careful! Lives: ❤️ ')
+            print('You are down to your last life! Be careful! Lives: ❤️ \n')
+            time.sleep(1)
+            print(f'NOT SO CONFIDENT NOW ARE YOU {player_name}! YOU\'LL TASTE DELICIOUS.')
         if lives >=2:
             print(f'You now have {lives} lives:', end ='')
             print(lives*'❤️ ')
     time.sleep(4)
     clear()
     print()
+def good_ending():
+    #make good ending here
+def sad_ending():
+    #make sad ending here
 
-
-
-
-
-        
-
-        
-
-    
-
-    
+#Now We need to check how many lives the player has left. As long as they have more than 0, they get the happy ending. 
