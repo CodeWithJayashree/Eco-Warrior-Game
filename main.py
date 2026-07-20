@@ -548,9 +548,19 @@ def good_ending():
 
 def sad_ending():
     #make sad ending here
-    
+
 
 
 #Now We need to check how many lives the player has left. As long as they have more than 0, they get the happy ending. 
 if lives> 0:
     good_ending()
+else:
+    sad_ending()
+
+#I'm also going to make a function called play again, which I'll include under the sad ending.
+#The function will ask players who lost if they want to redo the whole game, or just the final quiz
+#If not, the function should tell them that they did great anyway and encourage them to keep learning about the envoirment!
+
+def play_again():
+    #make play again function here!
+    
