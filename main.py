@@ -548,9 +548,35 @@ def good_ending():
 
 def sad_ending():
     #make sad ending here
-
-
-
+    clear()
+    linebreak()
+    print()
+    print('It\'s over.\n')
+    time.sleep(3)
+    print('You\'re whooshed back to the edge of the Briarwood.\n')
+    time.sleep(3)
+    print('You\'re eyes are glued to the ground. You\'re legs won\'t budge.\n')
+    time.sleep(3)
+    print('Time stands still.\n')
+    time.sleep(3)
+    print('You sob. You\'re stuck here.\n')
+    time.sleep(3)
+    print('Forever.\n')
+    time.sleep(3)
+    print('If you just had one more chance.\n')
+    time.sleep(3)
+    print('You were so, so close.\n')
+    time.sleep(3)
+    print('You trudge back to Mossy Meadows.\n')
+    time.sleep(3)
+    print('You don\'t want to face Oakley or Poppy. She was so happy for you.\n')
+    time.sleep(3)
+    print('You\'ll be seeing them a lot, since that's where you'll live now.\n')
+    time.sleep(3)
+    print('If only things had gone differently.')
+    time.sleep(2)
+    print('If only.')
+    linebreak()
 #Now We need to check how many lives the player has left. As long as they have more than 0, they get the happy ending. 
 if lives> 0:
     good_ending()
