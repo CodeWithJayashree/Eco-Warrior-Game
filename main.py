@@ -106,20 +106,22 @@ def potion_brewing():
         del garden[-1]
         time.sleep(1)
         count +=1
-    gem ='💎'
+    time.sleep(1)
+    print('⛧°. ⋆༺☾𖤓༻⋆. °⛧')
+    gem ='✨💎✨'
     print(gem)
     print('"Now, to brew the potion. 🪄"')
     time.sleep(3)
-    print('cigam noitop lleps'*5)
+    print('\033[1;35mcigam noitop lleps '*5)
     time.sleep(3)
-    print('cigam noitop LLEPS'*5)
+    print('cigam noitop LLEPS '*5)
     time.sleep(2)
-    print('cigam NOITOP LLEPS'*5)
+    print('cigam NOITOP LLEPS '*5)
     time.sleep(1)
-    print('CIGAM NOITOP LLEPS!'*5)
+    print('CIGAM NOITOP LLEPS! '*5)
     flash_purple() #added new flash purple function here :)
     potion = '🔮💎🔮💎🔮'
-    print(f'"Here is your potion: {potion}.')
+    print(f'"\033[0mHere is your potion: {potion}.')
     print('You have to pour the potion on yourself to be teleported to the Briarwood.')
     time.sleep(2)
     print(f'Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!')
@@ -134,7 +136,7 @@ quiz_questions = {
                 'Q4':'Fill in the blank: Riding a ________ instead of driving reduces carbon emissions.',
                 'Q5':'Type A or B: Which is more sustainable? A) Using a plastic water bottle. B) Using a reusable water bottle.',
                 'Q6':'Type A or B: Which is more sustainable? A) Consuming large amounts of meat and animal products. B) Consuming produce and other vegetables',
-                'Q7':'Which one does NOT belong? A) Cardboard boxes B) Old batteries C) Glass jars',
+                'Q7':'Which one does NOT belong? A)  Old batteries B)Cardboard boxes C) Glass jars',
                 'Q8':'Which one does NOT belong? A) Solar B) Hydroelectric C) Fossil fuels',  
                 }
 #This will check if the user's answer matches the correct answer in the dictionary
@@ -145,9 +147,9 @@ quiz_answers = {
                 'Q2':['false','False','f','F','FALSE'],
                 'Q3':['reuse','Reuse','REUSE','Re-use','re-use','RE-USE'],
                 'Q4':['bike','BIKE','Bike','bicycle','Bicycle','BICYCLE','scooter','Scooter','SCOOTER','skateboard','Skateboard','SKAETBOARD'],
-                'Q5':['a','A','A)'],
-                'Q6':['a','B','B)'],
-                'Q7':['b','B','B)'],
+                'Q5':['b','B','B)'],
+                'Q6':['b','B','B)'],
+                'Q7':['a','A','A)'],
                 'Q8':['c','C','C)'],
                 }
 def good_ending():
@@ -155,13 +157,13 @@ def good_ending():
     clear()
     linebreak()
     print()
-    print('NOOOOO! WHAT KIND OF TRICKERY IS THIS?\n')
+    print('\033[0;31mNOOOOO! WHAT KIND OF TRICKERY IS THIS?\033[0m\n')
     time.sleep(3)
     print('You shake your head in disbelief.\n')
     time.sleep(3)       
     print('You did it!\n')
     time.sleep(3)
-    print('I\'LL BE BACK! DON\'T THINK THAT I\'VE FORGOTTEN THIS. YOU WILL RUE THE D-\n')
+    print('\033[0;31mI\'LL BE BACK! DON\'T THINK THAT I\'VE FORGOTTEN THIS. YOU WILL RUE THE D-\033[0m\n')
     time.sleep(3)
     print('The inky blackness of the forrest disspeared.\n')
     time.sleep(3)
@@ -211,16 +213,16 @@ def good_ending():
     time.sleep(3)
     print('Nox\'s eyes glow white as he conjures a spell.\n')
     flash_white()
-    print('🌀LATROP emoH nruter!🌀')
+    print('\033[1;34m🌀LATROP emoH nruter!🌀')
     print('🌀'*15)
     print('🌀'*15)
     print('🌀'*15)
     print('🌀'*15)
-    print('A blue and white swirly vortex appears in front of you.\n')
+    print('\033[1;34mA blue and white swirly vortex appears in front of you.\n')
     time.sleep(3)
     print('Thank you, for everything! You step inside.\n')
     time.sleep(3)
-    print('A bright, white light welcomes you in.\n')
+    print('A bright, white light welcomes you in.\033[0m\n')
     time.sleep(3)
     print('Home.')
     print()
@@ -505,7 +507,7 @@ while playing:
     time.sleep(2)
     print('I\'ve come to...\n')
     time.sleep(2)
-    print('WHO DARES TO ENTER MY HOME UNINVITED!\n')
+    print('\033[0;31mWHO DARES TO ENTER MY HOME UNINVITED!\033[0m\n')
     time.sleep(1)
     print()
     linebreak()
@@ -521,40 +523,40 @@ while playing:
     time.sleep(2)
     print('You shake.\n')
     time.sleep(2)
-    print('LEAVE. NOW!\n')
+    print('\033[0;31mLEAVE. NOW!\033[0m\n')
     time.sleep(2)
     print('I\'ve come to free y-\n')
     time.sleep(2)
-    print('GET OUT!\n')
+    print('\033[0;31mGET OUT!\033[0m\n')
     time.sleep(2)
     print('I can help you! I can free you from your curse! \n')
     time.sleep(2)
-    print('HA! HUMANS. DELUSIONAL. IMPUSLIVE. I KNOW YOUR TYPE. YOU THINK YOU CAN BEST ME?\n')
+    print('\033[0;31mHA! HUMANS. DELUSIONAL. IMPUSLIVE. I KNOW YOUR TYPE. YOU THINK YOU CAN BEST ME?\033[0m\n')
     time.sleep(4)
-    print('THIS IS YOUR LAST CHANCE.\n')
+    print('\033[0;31mTHIS IS YOUR LAST CHANCE.\033[0m\n')
     time.sleep(2)
     print('I will free you.\n')
     time.sleep(2)
-    print('AND WHAT IS IT YOU WISH TO GAIN FROM RELEASING ME FROM MY SHADOW?\n')
+    print('\033[0;31mAND WHAT IS IT YOU WISH TO GAIN FROM RELEASING ME FROM MY SHADOW?\033[0m\n')
     time.sleep(2)
     print('I just want to go home. I want that wish.\n')
     time.sleep(8)
-    print('VERY WELL.\n')
+    print('\033[0;31mVERY WELL.\033[0m\n')
     time.sleep(2)
-    print('I WILL ASK YOU 8 QUESTIONS. SHOULD YOU ANSWER THEM CORRECTLY, YOU CAN HAVE YOUR WISH.\n')
+    print('\033[0;31mI WILL ASK YOU 8 QUESTIONS. SHOULD YOU ANSWER THEM CORRECTLY, YOU CAN HAVE YOUR WISH.\033[0m\n')
     print('\n')
     time.sleep(2)
     print('...\n')
     time.sleep(2)
     print('And if I don\'t?\n')
     time.sleep(3)
-    print('WHEN YOU FAIL, I WILL FEAST ON YOUR SOUL. IT\'S BEEN QUITE SOMETIME SINCE I HAD A NICE MEAL.\n')
+    print('\033[0;31mWHEN YOU FAIL, I WILL FEAST ON YOUR SOUL. IT\'S BEEN QUITE SOMETIME SINCE I HAD A NICE MEAL.\033[0m\n')
     time.sleep(2)
     print('You remember Master Oakley. And Poppy. They believed in you.\n')
     time.sleep(2)
     print('Alright. I\'ll do it.\n')
     time.sleep(3)
-    print('EXCELLENT.')
+    print('\033[0;31mEXCELLENT.\033[0m')
     print()
     time.sleep(1)
     linebreak()
@@ -567,21 +569,21 @@ while playing:
         print(f'Question: {quiz_questions[question]}')
         user_answer = input('Type answer here: ').strip()
         if user_answer in quiz_answers[question]:
-            print('Correct!')
+            print('\033[0;32mCorrect✅\033[0m')
         else:
-            print('Incorrect')
+            print('\033[0;31mIncorrect❌\033[0m')
             lives -=1
             if lives == 0:
                 print('You lost! The potion is wearing off, you must retreat!')
                 time.sleep(3)
-                print('I\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST. \n')
+                print('\033[0;31mI\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST.\033[0m\n')
                 print('You manage to duck in time.\n')
                 input('Press enter to flee Briarwoods:')
                 break
             if lives == 1:
                 print('You are down to your last life! Be careful! Lives: ❤️ \n')
                 time.sleep(1)
-                print(f'NOT SO CONFIDENT NOW ARE YOU {player_name}! YOU\'LL TASTE DELICIOUS.')
+                print(f'\033[0;31mNOT SO CONFIDENT NOW ARE YOU {player_name}! YOU\'LL TASTE DELICIOUS.\033[0m')
             if lives >=2:
                 print(f'You now have {lives} lives:', end ='')
                 print(lives*'❤️ ')
@@ -592,22 +594,23 @@ while playing:
     #Now We need to check how many lives the player has left. As long as they have more than 0, they get the happy ending. 
     if lives> 0:
         good_ending()
-        print('You are the Eco_Warrior! Our world needs you now more than ever. Use what you\'ve learned to help our environment!🌎')
+        print()
+        print('You are the Eco_Warrior ⚔️🌎⚔️ ! Our world needs you now more than ever! Use what you\'ve learned to help our environment! 🌎')
         playing = False
     else:
         sad_ending()
         print()
-        print('Hello. I\'m a magic forest sprite.\n')
+        print('\033[0;32mHello. I\'m a magic forest sprite.\033[0m\n')
         time.sleep(2)
-        print('I can give you another chance\n')
+        print('\033[0;32mI can give you another chance.\033[0m\n')
         time.sleep(2)
-        print('You can erase the past and try to change fate. Do you want to?')
-        restart = input('Type "yes" to play again. Type no to stay in Mossy Meadows.\n>>> ').strip().lower()
+        print('\033[0;32mYou can erase the past and try to change fate. Do you want to?\033[0m\n')
+        restart = input('\033[0;32mType "yes" to play again. Type no to stay in Mossy Meadows.\033[0m\n>>> ').strip().lower()
         if restart == 'yes':
-            print('Learn from you mistakes. You have another chance, make the most of it!')
+            print('\033[0;32mLearn from you mistakes. You have another chance, make the most of it!\033[0m')
             pass
         if restart == 'no':
-            print('I understand. But one defeat does not define you. Never stop learning, Eco-Warrior!')
+            print('\033[0;32mI understand. But one defeat does not define you. Never stop learning, Eco-Warrior!\033[0m')
             playing = False
 
 
