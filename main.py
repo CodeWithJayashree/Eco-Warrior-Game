@@ -1,6 +1,7 @@
 #I am going to orgnaize my code into 2 sections. One has the game. And the other has the helper functions/lists/dictionaries. 
 # This way everything is much neater instead of being a mix of both!
-#Code section: 
+#Code section:
+import pygame 
 import time
 import sys
 import os
@@ -265,15 +266,25 @@ def sad_ending():
     print('If only.')
     linebreak()
 #I've realized that music would proably help enhance my storybook enviorment and help the user feel more comfortable between pauses.
-#So, I've decided to add some small sound effect and some backgroud music to important scenes
+#So, I've decided to add some small sound effects and some backgroud music to important scenes
+pygame.mixer.init() #this initilaizes the mixer, which is what will be playing the music files!
 
-
-
+#Now I'm gonna make a function for the entering mossy meadows music
+def play_mossy_meadows():
+    mossy_meadows = 'game sounds/background music/mossy meadows.mp3' #make variable for music file
+    pygame.mixer.music.load(mossy_meadows) #name of music file variable
+    pygame.mixer.music.set_volume(0.2) #sets volume to 20% since its a background track
+    pygame.mixer.music.play(-1) #loops forever
+#Now I need to make a function to stop playing the music. I want it to fade out.
+def stop_music():
+    pygame.mixer.music.fadeout(3000) #fades out in 3 seconds
 #Game section:
 linebreak()
 print()
 time.sleep(3)
 flash_white()
+#testing new mossy meadows backgroudn sound
+play_mossy_meadows()
 print('Friends. Yelling. Light. A portal.\n')
 time.sleep(3)
 print('You startle awake, wildly swinging at nothing as you stumble backwards into a tree trunk.\n')
@@ -298,11 +309,11 @@ clear()
 time.sleep(3)
 linebreak()
 print()
-print('"It\'s awake!", a tiny mushroom squeals. You jolt upright. A talking mushroom? \n"Poppy! Stop frightening our guest!"\n')
+print('"It\'s awake!", a tiny mushroom squeals. You jolt upright. A talking mushroom? \n\n"Poppy! Stop frightening our guest!"\n')
 time.sleep(3)
 player_name = input('What is your name? \n>>> ')
 print()
-print(f'"I\'m Poppy! And this is Master Oakley!" \n"Welcome to Mossy Meadows, {player_name}", says Oakley. "I\'ve never seen you here before."\n')
+print(f'"I\'m Poppy! And this is Master Oakley!" \n\n"Welcome to Mossy Meadows, {player_name}", says Oakley. "I\'ve never seen you here before."\n\n')
 time.sleep(5)
 print('"I...don\'t know why I\'m here."\n')
 time.sleep(4)
@@ -323,7 +334,7 @@ print('Poppy tugs at your arm, leading you to a small candy colored street fille
 print('"Everyone needs something from Marsh Market." she says with a smile.\n')
 time.sleep(2)
 print('"What will it be?" asks the vendor.\n')
-print('1. A light blue shawl\n2. A wooly green coat\n3. A purple wizard\'s hat with stars')
+print('1. A light blue shawl\n2. A wooly green coat\n3. A purple wizard\'s hat with stars\n')
 time.sleep(2)
 player_item =input('Enter 1, 2, or 3 >>>').strip()
 print()
@@ -376,7 +387,7 @@ time.sleep(3)
 print('"How?"\n')
 time.sleep(3)
 print('"You must restore the magical garden. Complete eight quests, and each one will reward you with a magical plant. \nWhen the garden is full, I\'ll brew a potion strong enough to enter the Briarwood. \n' \
-'There, you can find and defeat Nox."')
+'There, you can find and defeat Nox."\n')
 time.sleep(3)
 print('He smiles.\n')
 #I also wnated to add more character choice here
@@ -384,11 +395,11 @@ print('"Are you ready?"\n')
 print('1.Absolutely. Let\'s do this!\n2.I\'m not sure what to expect, but I\'ll try.\n')
 starting = input('Press 1 or 2 to begin >>>').strip()
 if starting == '1':
-    print('"Excellent. You\'ll be done in no time!"')
+    print('\n"Excellent. You\'ll be done in no time!"')
 elif starting == '2':
     print('"Me and Poppy will be here every step of the way."')
 else:
-    print(f'"Don\'t be afraid! You can do this {player_name}!", Poppy says.')
+    print(f'\n"Don\'t be afraid! You can do this {player_name}!", Poppy says.')
 time.sleep(2)
 print()
 linebreak()
@@ -398,17 +409,15 @@ print()
 print('"Before you begin your quest, I want to tell you a little bit about sustainability." Oakley says.')
 print()
 time.sleep(3)
-print('Sustainable living refers to making lifestyle choices that leave minimal negative effects on environment. ')
-print()
-time.sleep(3)
 print('It focuses on making conscious choices to limit environmental impact that can be incorporated into your lifestyle.')
 print()
 time.sleep(3)
 print('Sustainable living doesn\'t have to be difficult or expensive! You can make a big difference by making small changes in your daily life.')
 print()
-time.sleep(4)
+time.sleep(3)
 input('Press enter to continue...')
 print()
+stop_music()
 linebreak()
 clear()
 #Now, I can basically use a while loop to keep the game going until the user has finished all of the quests. 
