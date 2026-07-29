@@ -82,7 +82,7 @@ def flash_purple():
     time.sleep(0.2)
 
 def potion_brewing():
-    print('꧁✮.....................................................✮꧂')
+    print('\n꧁✮.....................................................✮꧂')
     #Testing potion brewing background sound here
     play_potion_brewing()
     print('"First, we need to gather some rare magic ingredients from my grotto!", says Master Oakley.')
@@ -287,6 +287,12 @@ def play_potion_brewing():
     pygame.mixer.music.load(potion_brewing)
     pygame.mixer.music.set_volume(0.2)
     pygame.mixer.music.play(-1)
+#Adding a function for the player entering the briarwoods scene
+def play_briarwood():
+    entering_briarwood = 'game sounds/background music/entering briarwood'
+    pygame.mixer.music.load(entering_briarwood)
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(-1)
 #Game section:
 linebreak()
 print()
@@ -350,7 +356,7 @@ print()
 if player_item == '1':
     print('"That so cute! Good choice.", Poppy exclaims.')
 elif player_item == '2':
-    print('"Ah, night\'s here can get chilly. I have one of my own.", Oakley says.')
+    print('"Ah, nights here can get chilly. I have one of my own.", Oakley says.')
 elif player_item == '3':
     print('"You look like a real wizard!", Poppy joked.')
 else:
@@ -406,13 +412,14 @@ starting = input('Press 1 or 2 to begin >>>').strip()
 if starting == '1':
     print('\n"Excellent. You\'ll be done in no time!"')
 elif starting == '2':
-    print('"Me and Poppy will be here every step of the way."')
+    print('\n"Me and Poppy will be here every step of the way."')
 else:
     print(f'\n"Don\'t be afraid! You can do this {player_name}!", Poppy says.')
 time.sleep(2)
 print()
 linebreak()
 #Well, first, I need to tell the user about sustainability, and how it is important to take care of the enviorment! 
+clear()
 linebreak()
 print()
 print('"Before you begin your quest, I want to tell you a little bit about sustainability." Oakley says.')
@@ -476,7 +483,7 @@ print()
 time.sleep(3)
 clear()
 
-#Now, to make the end sequence of the story before the character enters the Briarwoods (fictional forest where the villan lives)
+#Now, to make the end sequence of the story before the character enters the Briarwood (fictional forest where the villan lives)
 linebreak()
 print()
 time.sleep(2)
@@ -495,7 +502,7 @@ print('You excitedly tell Master Oakley that you have comepleted all of the ques
 time.sleep(3)
 print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling.\n')
 time.sleep(3)
-print('"Now, I will brew a potion to help you enter the Briarwoods, a dangerous, enchanted forest where Nox lives.\n')
+print('"Now, I will brew a potion to help you enter the Briarwood, a dangerous, enchanted forest where Nox lives.\n')
 time.sleep(3)
 print('"Defeating Nox will not be easy. He will ask you some difficult questions that you must answer.\n')
 time.sleep(3)
@@ -518,6 +525,7 @@ linebreak()
 clear()
 #This is the scene where the character enters the Briarwood and finds Nox.
 time.sleep(3)
+play_briarwood()
 linebreak()
 print()
 print('You hesitate for just a second.\n')
@@ -639,7 +647,7 @@ for question in quiz_questions:
             time.sleep(3)
             print('\033[0;31mI\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST.\033[0m\n')
             print('You manage to duck in time.\n')
-            input('Press enter to flee Briarwoods:')
+            input('Press enter to flee the Briarwood:')
             break
         if lives == 1:
             print('You are down to your last life! Be careful! Lives: ❤️ \n')
@@ -651,7 +659,7 @@ for question in quiz_questions:
     time.sleep(4)
     clear()
     print()
-
+stop_music()
 #Now We need to check how many lives the player has left. As long as they have more than 0, they get the happy ending. 
 if lives> 0:
     good_ending()
