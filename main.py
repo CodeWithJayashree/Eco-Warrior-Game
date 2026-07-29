@@ -289,7 +289,7 @@ def play_potion_brewing():
     pygame.mixer.music.play(-1)
 #Adding a function for the player entering the briarwoods scene
 def play_briarwood():
-    entering_briarwood = 'game sounds/background music/entering briarwood'
+    entering_briarwood = 'game sounds/background music/entering briarwood.mp3'
     pygame.mixer.music.load(entering_briarwood)
     pygame.mixer.music.set_volume(0.2)
     pygame.mixer.music.play(-1)
