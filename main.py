@@ -83,6 +83,8 @@ def flash_purple():
 
 def potion_brewing():
     print('꧁✮.....................................................✮꧂')
+    #Testing potion brewing background sound here
+    play_potion_brewing()
     print('"First, we need to gather some rare magic ingredients from my grotto!", says Master Oakley.')
     time.sleep(2)
     print('...')
@@ -129,6 +131,7 @@ def potion_brewing():
     print(f'"\033[0mHere is your potion: {potion}.')
     print('You have to pour the potion on yourself to be teleported to the Briarwood.')
     time.sleep(2)
+    stop_music()
     print(f'Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!\n')
     time.sleep(3)
     print('꧁✮.....................................................✮꧂')
@@ -278,12 +281,18 @@ def play_mossy_meadows():
 #Now I need to make a function to stop playing the music. I want it to fade out.
 def stop_music():
     pygame.mixer.music.fadeout(3000) #fades out in 3 seconds
+#Now I'm making a function to play the background music for the potion making scene!
+def play_potion_brewing():
+    potion_brewing = 'game sounds/background music/potion brewing.mp3'
+    pygame.mixer.music.load(potion_brewing)
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(-1)
 #Game section:
 linebreak()
 print()
 time.sleep(3)
 flash_white()
-#testing new mossy meadows backgroudn sound
+#testing new mossy meadows background sound
 play_mossy_meadows()
 print('Friends. Yelling. Light. A portal.\n')
 time.sleep(3)
@@ -582,7 +591,7 @@ print('\033[0;31mAND WHAT IS IT YOU WISH TO GAIN FROM RELEASING ME FROM MY SHADO
 time.sleep(2)
 #Here I want to add a bit more story so teh player can reveal their true motivations! 
 #I think this will make the story feel more fun and interactive. 
-print('1.I want to retrun home.\n2.I want to help you.\n3.I believe everyone deserves a second chance.\n')
+print('1.I want to return home.\n2.I want to help you.\n3.I believe everyone deserves a second chance.\n')
 climax_feeling = input('Press 1, 2, or 3 >>> ').strip()
 if climax_feeling == '1':
     print('\033[0;31mNOT AS NOBLE AS YOU SEEM TO THINK EH?\033[0m\n')
