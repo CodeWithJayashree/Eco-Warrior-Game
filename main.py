@@ -164,6 +164,8 @@ def good_ending():
     #make good ending here
     clear()
     linebreak()
+    #Adding winning music here
+    play_winning_theme()
     print()
     print('\033[0;31mNOOOOO! WHAT KIND OF TRICKERY IS THIS?\033[0m\n')
     time.sleep(3)
@@ -233,6 +235,8 @@ def good_ending():
     time.sleep(3)
     print('A bright, white light welcomes you in.\033[0m\n')
     time.sleep(3)
+    #stop music here
+    stop_music()
     print('Home.')
     print()
     linebreak()
@@ -274,7 +278,7 @@ pygame.mixer.init() #this initilaizes the mixer, which is what will be playing t
 
 #Now I'm gonna make a function for the entering mossy meadows music
 def play_mossy_meadows():
-    mossy_meadows = 'game sounds/background music/mossy meadows.mp3' #make variable for music file
+    mossy_meadows = 'game sounds/background music/mossy_meadows.mp3' #make variable for music file
     pygame.mixer.music.load(mossy_meadows) #name of music file variable
     pygame.mixer.music.set_volume(0.2) #sets volume to 20% since its a background track
     pygame.mixer.music.play(-1) #loops forever
@@ -283,16 +287,23 @@ def stop_music():
     pygame.mixer.music.fadeout(3000) #fades out in 3 seconds
 #Now I'm making a function to play the background music for the potion making scene!
 def play_potion_brewing():
-    potion_brewing = 'game sounds/background music/potion brewing.mp3'
+    potion_brewing = 'game sounds/background music/potion_brewing.mp3'
     pygame.mixer.music.load(potion_brewing)
     pygame.mixer.music.set_volume(0.2)
     pygame.mixer.music.play(-1)
 #Adding a function for the player entering the briarwoods scene
 def play_briarwood():
-    entering_briarwood = 'game sounds/background music/entering briarwood.mp3'
+    entering_briarwood = 'game sounds/background music/entering_briarwood.mp3'
     pygame.mixer.music.load(entering_briarwood)
     pygame.mixer.music.set_volume(0.2)
     pygame.mixer.music.play(-1)
+#Make function to play music if user wins! 
+def play_winning_theme():
+    winning_theme = 'game sounds/background music/happy_ending.mp3'
+    pygame.mixer.music.load(winning_theme)
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(-1)
+
 #Game section:
 linebreak()
 print()
