@@ -42,7 +42,7 @@ quests = ['Lights Out! Try to see if you can always remember to turn the lights 
           'Water Watch! Try to use less water today by taking showers instead of baths and turning off the faucet when brushing your teeth!',
           'Protest Plastic! Try to use less plastic today by using reusable utentils, straws, and bags. Think you can go plastic free for a whole day?',
           'Transportation Transformation! Try to use less transportation today by walking, biking, or taking public transport. Think you have what it takes to go car free?',]
-#Now, I will also be making a list of quest explanations, that give the user more information about the quest once they've comepleted it.
+#Now, I will also be making a list of quest explanations, that give the user more information about the quest once they've completed it.
 #Adding statistics to these messages will help the user better understand their positive impact!
 quest_explanations = [f'Switching off the lights is a good start, but using energy-efficient LEDs is better, as they consume 75% less energy!',
                       'Collecting trash keeps the environment clean and prevents pollution. By 2050, an estimated 3.78 billion metric tons of trash will be produced.',
@@ -102,15 +102,16 @@ def potion_brewing():
     time.sleep(2)
     print('"And some unicorn hair!"')
     print('🦄🦄🦄')
-    print('"And now, for the most important ingredient. You\'re garden!"\n')
+    print('"And now, for the most important ingredient. Your garden!"\n')
     print('You see, those aren\'t just any plants. Together, they become a rare, powerful jewel called a Lux Roboris.\n')
     time.sleep(2)
     count = 0
+    temp_garden = garden[:]
     while count <8:
-        for i in garden:
+        for i in temp_garden:
             print(i, end ="")
         print()
-        del garden[-1]
+        del temp_garden[-1]
         time.sleep(1)
         count +=1
     time.sleep(1)
@@ -132,7 +133,7 @@ def potion_brewing():
     print('You have to pour the potion on yourself to be teleported to the Briarwood.')
     time.sleep(2)
     stop_music()
-    print(f'Remember, you will only have 3 chances, to beat Nox. Good luck {player_name}!\n')
+    print(f'Remember, you will only have 3 chances to beat Nox. Good luck {player_name}!\n')
     time.sleep(3)
     print('꧁✮.....................................................✮꧂')
 #The Final quiz will be a dictionary. The keys are the questions and the values are the answers.
@@ -144,17 +145,17 @@ quiz_questions = {
                 'Q4':'Fill in the blank: Riding a ________ instead of driving reduces carbon emissions.',
                 'Q5':'Type A or B: Which is more sustainable? A) Using a plastic water bottle. B) Using a reusable water bottle.',
                 'Q6':'Type A or B: Which is more sustainable? A) Consuming large amounts of meat and animal products. B) Consuming produce and other vegetables',
-                'Q7':'Which one does NOT belong? A)  Old batteries B)Cardboard boxes C) Glass jars',
+                'Q7':'Which one does NOT belong? A) Old batteries B) Cardboard boxes C) Glass jars',
                 'Q8':'Which one does NOT belong? A) Solar B) Hydroelectric C) Fossil fuels',  
                 }
 #This will check if the user's answer matches the correct answer in the dictionary
 #I realise now that I should probably include more than one way of answering for some of these questions so the user doesn't feel misled. 
 #To do this, I will be making another dictionary with the quiz answers
 quiz_answers = {
-                'Q1':['true','True','t','T','TRUE'],
-                'Q2':['false','False','f','F','FALSE'],
+                'Q1':['true','t'],
+                'Q2':['false','f'],
                 'Q3':['reuse','Reuse','REUSE','Re-use','re-use','RE-USE'],
-                'Q4':['bike','BIKE','Bike','bicycle','Bicycle','BICYCLE','scooter','Scooter','SCOOTER','skateboard','Skateboard','SKAETBOARD'],
+                'Q4':['bike','BIKE','Bike','bicycle','Bicycle','BICYCLE','scooter','Scooter','SCOOTER','skateboard','Skateboard','SKATEBOARD'],
                 'Q5':['b','B','B)'],
                 'Q6':['b','B','B)'],
                 'Q7':['a','A','A)'],
@@ -164,8 +165,6 @@ def good_ending():
     #make good ending here
     clear()
     linebreak()
-    #Adding winning music here
-    play_winning_theme()
     print()
     print('\033[0;31mNOOOOO! WHAT KIND OF TRICKERY IS THIS?\033[0m\n')
     time.sleep(3)
@@ -175,9 +174,11 @@ def good_ending():
     time.sleep(3)
     print('\033[0;31mI\'LL BE BACK! DON\'T THINK THAT I\'VE FORGOTTEN THIS. YOU WILL RUE THE D-\033[0m\n')
     time.sleep(3)
-    print('The inky blackness of the forrest disspeared.\n')
+    print('The inky blackness of the forest disspeared.\n')
     time.sleep(3)
     print('Lush green trees. Birds and bees. Flowers everywhere.\n')
+     #Adding winning music here
+    play_winning_theme()
     time.sleep(3)
     print('An old looking wizard stood where the shadow once was.\n')
     time.sleep(3)
@@ -191,7 +192,7 @@ def good_ending():
     time.sleep(3)
     print('Of course.\n')
     time.sleep(3)
-    print('Why were you trapped in your own shaddow Nox?\n')
+    print('Why were you trapped in your own shadow Nox?\n')
     time.sleep(3)
     print('The earth spirit cursed me.\n')
     print('She said that when, and only when I can learn to love and protect the environment, I will be allowed to experience its beauty again.\n')
@@ -235,8 +236,6 @@ def good_ending():
     time.sleep(3)
     print('A bright, white light welcomes you in.\033[0m\n')
     time.sleep(3)
-    #stop music here
-    stop_music()
     print('Home.')
     print()
     linebreak()
@@ -295,7 +294,7 @@ def play_potion_brewing():
 def play_briarwood():
     entering_briarwood = 'game sounds/background music/entering_briarwood.mp3'
     pygame.mixer.music.load(entering_briarwood)
-    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.set_volume(0.6)
     pygame.mixer.music.play(-1)
 #Make function to play music if user wins! 
 def play_winning_theme():
@@ -500,7 +499,7 @@ print()
 time.sleep(2)
 print('You did it! You\'re one step closer to finally going back home.')
 time.sleep(3)
-print('You wonder if you\'re friends back home are looking for you.')
+print('You wonder if your friends back home are looking for you.')
 time.sleep(3)
 print('Guess you\'ll find out soon enough.')
 print()
@@ -509,27 +508,27 @@ time.sleep(2)
 clear()
 linebreak()
 print()
-print('You excitedly tell Master Oakley that you have comepleted all of the quests and collected the plants.\n')
+print('You excitedly tell Master Oakley that you have completed all of the quests and collected the plants.\n')
 time.sleep(3)
-print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling.\n')
+print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling."\n')
 time.sleep(3)
-print('"Now, I will brew a potion to help you enter the Briarwood, a dangerous, enchanted forest where Nox lives.\n')
+print(f'"Now, I will brew a potion to help you enter the Briarwood, a dangerous, enchanted forest where Nox lives."\n')
 time.sleep(3)
-print('"Defeating Nox will not be easy. He will ask you some difficult questions that you must answer.\n')
+print(f'"Defeating Nox will not be easy. He will ask you some difficult questions that you must answer."\n')
 time.sleep(3)
-print('"The potion will give you three chances to answer all of the questions to defeat Nox."\n')
+print(f'"The potion will give you three chances to answer all of the questions to defeat Nox."\n')
 time.sleep(3)
-print('"Should you succeed..."\n')
+print(f'"Should you succeed..."\n')
 time.sleep(2)
 print('...\n')
 time.sleep(3)
 print('...The wish will be mine. I can finally go home!\n')
 time.sleep(3)
-print('"Let\'s get to work"\n')
+print(f'"Let\'s get to work"\n')
 input('Press enter to brew the potion...\n')
 potion_brewing()
 print()
-print('"I\'m gonna miss you! Be careful out there!" says Poppy.\n')
+print(f'"I\'m gonna miss you! Be careful out there!" says Poppy.\n')
 print()
 input('Press enter to begin the final battle...')
 linebreak()
@@ -600,7 +599,7 @@ print('\033[0;31mGET OUT!\033[0m\n')
 time.sleep(2)
 print('I can help you! I can free you from your curse! \n')
 time.sleep(2)
-print('\033[0;31mHA! HUMANS. DELUSIONAL. IMPUSLIVE. I KNOW YOUR TYPE. YOU THINK YOU CAN BEST ME?\033[0m\n')
+print('\033[0;31mHA! HUMANS. DELUSIONAL. IMPULSIVE. I KNOW YOUR TYPE. YOU THINK YOU CAN BEST ME?\033[0m\n')
 time.sleep(4)
 print('\033[0;31mTHIS IS YOUR LAST CHANCE.\033[0m\n')
 time.sleep(2)
@@ -647,7 +646,7 @@ linebreak()
 for question in quiz_questions:
     print()
     print(f'Question: {quiz_questions[question]}')
-    user_answer = input('Type answer here: ').strip()
+    user_answer = input('Type answer here: ').strip().lower()
     if user_answer in quiz_answers[question]:
         print('\033[0;32mCorrect ✅\033[0m')
     else:
@@ -657,12 +656,13 @@ for question in quiz_questions:
             print('You lost! The potion is wearing off, you must retreat!')
             time.sleep(3)
             print('\033[0;31mI\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST.\033[0m\n')
-            print('You manage to duck in time.\n')
+            print()
             input('Press enter to flee the Briarwood:')
             break
         if lives == 1:
             print('You are down to your last life! Be careful! Lives: ❤️ \n')
             time.sleep(1)
+            print()
             print(f'\033[0;31mNOT SO CONFIDENT NOW ARE YOU {player_name}! YOU\'LL TASTE DELICIOUS.\033[0m')
         if lives >=2:
             print(f'You now have {lives} lives:', end ='')
@@ -675,8 +675,12 @@ stop_music()
 if lives> 0:
     good_ending()
     print()
-    print('You are the Eco_Warrior ⚔️🌎⚔️ ! Our world needs you now more than ever! Use what you\'ve learned to help our environment! 🌎')
+    #stop music here
+    stop_music()
+    print('\033[0;32mYou are the Eco_Warrior ⚔️🌎⚔️ ! Our world needs you now more than ever! Use what you\'ve learned to help our environment! 🌎\033[0m')
     print()
+    for i in garden:
+        print(i, end ="")
 else:
     sad_ending()
     print()
@@ -687,12 +691,16 @@ else:
     print('\033[0;32mYou can erase the past and try to change fate. Do you want to?\033[0m\n')
     print()
     play_again = input('\033[0;32mType "yes" to play again. Type no to stay in Mossy Meadows.\033[0m\n>>> ').strip().lower()
+
+    while play_again != 'yes' and play_again != 'no':
+        print('\033[0;32mInvalid input. Please type "yes" or "no".\033[0m')
+        play_again = input('\033[0;32mType "yes" to play again. Type no to stay in Mossy Meadows.\033[0m\n>>> ').strip().lower()
+
     if play_again == 'yes':
-        print('\033[0;32mLearn from you mistakes. You have another chance, make the most of it!\033[0m')
-        print()
+        stop_music()
+        print('\033[0;32mLearn from your mistakes. You have another chance, make the most of it!\033[0m')
+        time.sleep(3)
         restart()
-    if play_again == 'no':
+    else:
         print('\033[0;32mI understand. But one defeat does not define you. Never stop learning, Eco-Warrior!\033[0m')
-        
-
-
+        stop_music()
