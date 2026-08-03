@@ -61,11 +61,15 @@ complete_messages=['Awesome', 'Well done', 'You did it', 'Amazing work', 'Good j
 def water_garden():
     if quests_completed > 0 and (quests_completed+1) %2 == 0:
         input('Press enter to water your garden! 💧💧💧')
+        #playing watering sound effect here
+        play_water_sound()
         print()
         for plant in garden:
             print(plant + '✨', end='')
         time.sleep(3)
         print('\n')
+        #stop watering sound
+        stop_music()
         print('Your garden is looking beautiful!')
     else:
         print()
@@ -322,8 +326,18 @@ def play_losing_theme():
 
 #These are the sound effects functions. I will add more as I go along.
 
-
-
+#Now, to make a watering the garden sound effect. 
+def play_water_sound():
+    water_sound = 'game sounds/sound effects/water_sound.mp3'
+    pygame.mixer.music.load(water_sound)
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(-1)
+#Now, I will make a magical flourish sound effect for the garden getting a new plant
+def play_chime_sound():
+    chime_sound = 'game sounds/sound effects/magic_chime.mp3'
+    pygame.mixer.music.load(chime_sound)
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play
 ############################################################################################################################################
 #Game section:
 linebreak()
@@ -492,6 +506,8 @@ while quests_completed < len(quests):
         time.sleep(2)
         print()
         water_garden()
+        #playing magical chime sound effect here 
+        play_chime_sound()
         print()
         if quests_completed == 3:
             print('You\'re halfway there! Keep going!')
@@ -500,6 +516,7 @@ while quests_completed < len(quests):
         quests_completed +=1
         time.sleep(3)
         clear()
+        stop_music() #I know that the music will stop, but just incase I missed it earlier
     else:
         print()
         print('Please type "done", when you are finished. You can do it! ')
