@@ -1,5 +1,6 @@
 #I am going to orgnaize my code into 2 sections. One has the game. And the other has the helper functions/lists/dictionaries. 
 # This way everything is much neater instead of being a mix of both!
+############################################################################################################################################
 #Code section:
 import pygame 
 import time
@@ -242,6 +243,8 @@ def good_ending():
 
 def sad_ending():
     #make sad ending here
+    #playing sad ending music here
+    play_losing_theme()
     clear()
     linebreak()
     print()
@@ -269,6 +272,8 @@ def sad_ending():
     time.sleep(3)
     print('If only things had gone differently.\n')
     time.sleep(2)
+    #stopping music
+    stop_music()
     print('If only.')
     linebreak()
 #I've realized that music would proably help enhance my storybook enviorment and help the user feel more comfortable between pauses.
@@ -276,6 +281,12 @@ def sad_ending():
 pygame.mixer.init() #this initilaizes the mixer, which is what will be playing the music files!
 
 #Now I'm gonna make a function for the entering mossy meadows music
+
+#I should mention that NONE of this music is my own. ALL RIGHTS GO TO THE ORIGINAL CREATORS!!
+#I just wanted to add some music to enhance the storybook enviorment of my game. :)
+#I downloaded all of the music from Pixabay.
+
+#These are all of the MAIN background music functions. I will add more for the sound effects later.
 def play_mossy_meadows():
     mossy_meadows = 'game sounds/background music/mossy_meadows.mp3' #make variable for music file
     pygame.mixer.music.load(mossy_meadows) #name of music file variable
@@ -302,7 +313,18 @@ def play_winning_theme():
     pygame.mixer.music.load(winning_theme)
     pygame.mixer.music.set_volume(0.2)
     pygame.mixer.music.play(-1)
+#Now I will make a function to play the losing theme if the user loses the game
+def play_losing_theme():
+    losing_theme = 'game sounds/background music/sad_ending.mp3'
+    pygame.mixer.music.load(losing_theme)
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(-1)
 
+#These are the sound effects functions. I will add more as I go along.
+
+
+
+############################################################################################################################################
 #Game section:
 linebreak()
 print()
