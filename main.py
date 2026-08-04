@@ -68,8 +68,6 @@ def water_garden():
             print(plant + '✨', end='')
         time.sleep(3)
         print('\n')
-        #stop watering sound
-        stop_music()
         print('Your garden is looking beautiful!')
     else:
         print()
@@ -328,16 +326,16 @@ def play_losing_theme():
 
 #Now, to make a watering the garden sound effect. 
 def play_water_sound():
-    water_sound = 'game sounds/sound effects/water_sound.mp3'
-    pygame.mixer.music.load(water_sound)
-    pygame.mixer.music.set_volume(0.2)
-    pygame.mixer.music.play(-1)
+    water_sound = 'game sounds/sound effects/water_dripping.mp3'
+    water_sound = pygame.mixer.Sound(water_sound)
+    water_sound.set_volume(0.2)
+    water_sound.play(3)
 #Now, I will make a magical flourish sound effect for the garden getting a new plant
 def play_chime_sound():
-    chime_sound = 'game sounds/sound effects/magic_chime.mp3'
-    pygame.mixer.music.load(chime_sound)
-    pygame.mixer.music.set_volume(0.2)
-    pygame.mixer.music.play
+    chime_sound = 'game sounds/sound effects/magical_chime.mp3'
+    chime_sound = pygame.mixer.Sound(chime_sound)
+    chime_sound.set_volume(0.2)
+    chime_sound.play()
 ############################################################################################################################################
 #Game section:
 linebreak()
@@ -349,17 +347,17 @@ play_mossy_meadows()
 print('Friends. Yelling. Light. A portal.\n')
 time.sleep(3)
 print('You startle awake, wildly swinging at nothing as you stumble backwards into a tree trunk.\n')
-time.sleep(4)
+time.sleep(2)
 print('You\'re covered in mud and your breathing is ragged. You swear there was a portal behind you.\n')
-time.sleep(4)
+time.sleep(2)
 print('Where is it now?\n')
-time.sleep(5)
+time.sleep(2)
 print('You force your eyes open, taking in your surroundings.\n')
-time.sleep(4)
+time.sleep(2)
 print('A babbling brook. Tiny huts made of straw and twigs. Towering trees. Flowers everywhere.\n')
-time.sleep(4)
+time.sleep(2)
 print('Your panic fades as you stare at this storybook forest. It\'s like you\'ve fallen into a fairytale.\n')
-time.sleep(4)
+time.sleep(2)
 print('Something rough brushed against your cheek.\n')
 time.sleep(2)
 print('Everything fades to black.')
@@ -374,12 +372,12 @@ print('"It\'s awake!", a tiny mushroom squeals. You jolt upright. A talking mush
 time.sleep(3)
 player_name = input('What is your name? \n>>> ')
 print()
-print(f'"I\'m Poppy! And this is Master Oakley!" \n\n"Welcome to Mossy Meadows, {player_name}", says Oakley. "I\'ve never seen you here before."\n\n')
-time.sleep(5)
+print(f'"I\'m Poppy! And this is Master Oakley!" \n\n"Welcome to Mossy Meadows, {player_name}", says Oakley. "I\'ve never seen you here before."\n')
+time.sleep(2)
 print('"I...don\'t know why I\'m here."\n')
-time.sleep(4)
+time.sleep(2)
 print('Oakley nods. "Rest for now, we can talk later"\n')
-time.sleep(4)
+time.sleep(2)
 print()
 linebreak()
 clear()
@@ -391,7 +389,7 @@ time.sleep(3)
 print('The market is small, but lively. Frogs bid on flies. Snails buy new shells. Flowers are everywhere.\n')
 #Since my game is very text based, the player doesn't really have a chance to customize their avatar. 
 #So, I wanted to add the text based equivalent, but letting them choose and accessory from the market!
-print('Poppy tugs at your arm, leading you to a small candy colored street filled with vendors stalls.\n')
+print('Poppy tugs at your arm, leading you to a small, candy colored street filled with vendors stalls.\n')
 print('"Everyone needs something from Marsh Market." she says with a smile.\n')
 time.sleep(2)
 print('"What will it be?" asks the vendor.\n')
@@ -416,7 +414,7 @@ time.sleep(3)
 print('She blinks. "I\'ve never heard of it."\n')
 time.sleep(3)
 print('...\n')
-time.sleep(4)
+time.sleep(2)
 print('By the time you return to the cottage, only one thought fills your mind.\n')
 time.sleep(3)
 print('How do I get home?')
@@ -428,17 +426,17 @@ linebreak()
 print()
 print('That evening, Oakley knocks on your door.\n')
 print('"I\'ve been thinking about what you told me."\n')
-time.sleep(4)
+time.sleep(2)
 print('You look up.\n')
-time.sleep(3)
+time.sleep(2)
 print('"There may be a way to return home."\n')
-time.sleep(3)
+time.sleep(2)
 print('"Really?"\n')
-time.sleep(3)
+time.sleep(2)
 print('He nods.\n')
-time.sleep(3)
+time.sleep(2)
 print('"Long ago, a wizard named Nox was cursed and trapped within his own shadow. Legend says that anyone who breaks his curse is granted one wish."\n')
-time.sleep(4)
+time.sleep(2)
 print('"So... if I help him..."\n')
 time.sleep(3)
 print('...\n')
@@ -458,7 +456,7 @@ starting = input('Press 1 or 2 to begin >>>').strip()
 if starting == '1':
     print('\n"Excellent. You\'ll be done in no time!"')
 elif starting == '2':
-    print('\n"Me and Poppy will be here every step of the way."')
+    print('\n"Poppy and I will be here every step of the way."')
 else:
     print(f'\n"Don\'t be afraid! You can do this {player_name}!", Poppy says.')
 time.sleep(2)
@@ -496,14 +494,12 @@ while quests_completed < len(quests):
         time.sleep(2)
         print(f'Here is some extra information about the quest: {quest_explanations[quests_completed]}')
         print()
-        time.sleep(5)
+        time.sleep(4)
         print(f'You have added a plant to your garden!')
         print()
         garden[quests_completed] = plants[quests_completed]
         for i in garden:
             print(i," ", end='')
-        print()
-        time.sleep(2)
         print()
         water_garden()
         #playing magical chime sound effect here 
@@ -514,7 +510,7 @@ while quests_completed < len(quests):
         else:
             pass
         quests_completed +=1
-        time.sleep(3)
+        time.sleep(2)
         clear()
         stop_music() #I know that the music will stop, but just incase I missed it earlier
     else:
