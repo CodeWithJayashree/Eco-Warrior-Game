@@ -91,10 +91,10 @@ def potion_brewing():
     print('"First, we need to gather some rare magic ingredients from my grotto!", says Master Oakley.')
     time.sleep(2)
     print('...')
-    play_potion_magic_sounds()
     time.sleep(1)
     print('"Aha! I\'ve found what we need. Lets get started!"')
     time.sleep(2)
+    play_potion_magic_sounds()
     print('"A touch of toadstool"')
     print('🍄🍄🍄')
     time.sleep(2)
@@ -133,8 +133,8 @@ def potion_brewing():
     print('CIGAM NOITOP LLEPS! '*5)
     flash_purple() #added new flash purple function here :)
     potion = '🔮💎🔮💎🔮'
-    print(f'"\033[0mHere is your potion: {potion}.')
-    print('You have to pour the potion on yourself to be teleported to the Briarwood.')
+    print(f'"\033[0mHere is your potion: {potion}.\n')
+    print('You have to pour the potion on yourself to be teleported to the Briarwood.\n')
     time.sleep(2)
     stop_music()
     print(f'Remember, you will only have 3 chances to beat Nox. Good luck {player_name}!\n')
@@ -149,8 +149,8 @@ quiz_questions = {
                 'Q4':'Fill in the blank: Riding a ________ instead of driving reduces carbon emissions.',
                 'Q5':'Type A or B: Which is more sustainable? A) Using a plastic water bottle. B) Using a reusable water bottle.',
                 'Q6':'Type A or B: Which is more sustainable? A) Consuming large amounts of meat and animal products. B) Consuming produce and other vegetables',
-                'Q7':'Which one does NOT belong? A) Old batteries B) Cardboard boxes C) Glass jars',
-                'Q8':'Which one does NOT belong? A) Solar B) Hydroelectric C) Fossil fuels',  
+                'Q7':'Which one does NOT belong in the recycling bin? A) Old batteries B) Cardboard boxes C) Glass jars',
+                'Q8':'Which one is NOT a renewable energy source? A) Solar B) Hydroelectric C) Fossil fuels',  
                 }
 #This will check if the user's answer matches the correct answer in the dictionary
 #I realise now that I should probably include more than one way of answering for some of these questions so the user doesn't feel misled. 
@@ -236,6 +236,7 @@ def good_ending():
     print()
     print('\033[1;34mA blue and white swirly vortex appears in front of you.\n')
     time.sleep(3)
+    stop_music()
     print('Thank you, for everything! You step inside.\n')
     time.sleep(3)
     print('A bright, white light welcomes you in.\033[0m\n')
@@ -330,7 +331,7 @@ def play_water_sound():
     water_sound = 'game sounds/sound effects/water_dripping.mp3'
     water_sound = pygame.mixer.Sound(water_sound)
     water_sound.set_volume(0.3)
-    water_sound.play(3)
+    water_sound.play(2)
 #Now, I will make a magical flourish sound effect for the garden getting a new plant
 def play_chime_sound():
     chime_sound = 'game sounds/sound effects/magical_chime.mp3'
@@ -361,19 +362,19 @@ def play_potion_magic_sounds():
     fairy_dust = pygame.mixer.Sound(fairy_dust)
     unicorn_hair = pygame.mixer.Sound(unicorn_hair)
     gem = pygame.mixer.Sound(gem)
-    toadstool.set_volume(0.3)
-    lightning.set_volume(0.3)
-    fairy_dust.set_volume(0.3)
-    unicorn_hair.set_volume(0.3)
-    gem.set_volume(0.3)
+    toadstool.set_volume(0.4)
+    lightning.set_volume(0.4)
+    fairy_dust.set_volume(0.4)
+    unicorn_hair.set_volume(0.4)
+    gem.set_volume(0.4)
     toadstool.play()
-    time.sleep(1)
+    time.sleep(2)
     lightning.play()
-    time.sleep(1)
+    time.sleep(2)
     fairy_dust.play()
-    time.sleep(1)
+    time.sleep(2)
     unicorn_hair.play()
-    time.sleep(1)
+    time.sleep(5)
     gem.play()
 ############################################################################################################################################
 #Game section:
@@ -540,7 +541,7 @@ while quests_completed < len(quests):
         garden[quests_completed] = plants[quests_completed]
         for i in garden:
             print(i," ", end='')
-        print()
+        print('\n')
         water_garden()
         #playing magical chime sound effect here 
         play_chime_sound()
@@ -572,12 +573,11 @@ clear()
 linebreak()
 print()
 time.sleep(2)
-print('You did it! You\'re one step closer to finally going back home.')
+print('You did it! You\'re one step closer to finally going back home.\n')
 time.sleep(3)
-print('You wonder if your friends back home are looking for you.')
+print('You wonder if your friends back home are looking for you.\n')
 time.sleep(3)
-print('Guess you\'ll find out soon enough.')
-print()
+print('Guess you\'ll find out soon enough.\n')
 linebreak()
 time.sleep(2)
 clear()
@@ -585,7 +585,7 @@ linebreak()
 print()
 print('You excitedly tell Master Oakley that you have completed all of the quests and collected the plants.\n')
 time.sleep(3)
-print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling."\n')
+print(f'"Well done {player_name}. I knew you could do it.", Master Oakley says, smiling.\n')
 time.sleep(3)
 print(f'"Now, I will brew a potion to help you enter the Briarwood, a dangerous, enchanted forest where Nox lives."\n')
 time.sleep(3)
@@ -601,6 +601,7 @@ print('...The wish will be mine. I can finally go home!\n')
 time.sleep(3)
 print(f'"Let\'s get to work"\n')
 input('Press enter to brew the potion...\n')
+clear()
 potion_brewing()
 print()
 print(f'"I\'m gonna miss you! Be careful out there!" says Poppy.\n')
@@ -610,7 +611,6 @@ linebreak()
 clear()
 #This is the scene where the character enters the Briarwood and finds Nox.
 time.sleep(3)
-play_briarwood()
 linebreak()
 print()
 print('You hesitate for just a second.\n')
@@ -630,6 +630,7 @@ clear()
 time.sleep(3)
 linebreak()
 print()
+play_briarwood()
 print('You hear something rustling.\n')
 time.sleep(2)
 print('You feel the dirt squelch in your palms.\n')
@@ -650,7 +651,7 @@ print('Nox! I\'ve come to free you!\n')
 time.sleep(2)
 print('I\'ve come to...\n')
 time.sleep(2)
-print('\033[0;31mWHO DARES TO ENTER MY HOME UNINVITED!\033[0m\n')
+print('\033[0;31mWHO DARES TO ENTER MY HOME UNINVITED!\033[0m')
 time.sleep(1)
 print()
 linebreak()
@@ -686,6 +687,7 @@ time.sleep(2)
 #I think this will make the story feel more fun and interactive. 
 print('1.I want to return home.\n2.I want to help you.\n3.I believe everyone deserves a second chance.\n')
 climax_feeling = input('Press 1, 2, or 3 >>> ').strip()
+print()
 if climax_feeling == '1':
     print('\033[0;31mNOT AS NOBLE AS YOU SEEM TO THINK EH?\033[0m\n')
 elif climax_feeling == '2':
@@ -698,7 +700,6 @@ time.sleep(3)
 print('\033[0;31mVERY WELL.\033[0m\n')
 time.sleep(2)
 print('\033[0;31mI WILL ASK YOU 8 QUESTIONS. SHOULD YOU ANSWER THEM CORRECTLY, YOU CAN HAVE YOUR WISH.\033[0m\n')
-print('\n')
 time.sleep(2)
 print('...\n')
 time.sleep(2)
@@ -730,7 +731,7 @@ for question in quiz_questions:
         print('\033[0;31mIncorrect ❌\033[0m')
         lives -=1
         if lives == 0:
-            print('You lost! The potion is wearing off, you must retreat!')
+            print('You lost! The potion is wearing off, you must retreat!\n')
             time.sleep(3)
             print('\033[0;31mI\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST.\033[0m\n')
             print()
@@ -752,8 +753,6 @@ stop_music()
 if lives> 0:
     good_ending()
     print()
-    #stop music here
-    stop_music()
     print('\033[0;32mYou are the Eco_Warrior ⚔️🌎⚔️ ! Our world needs you now more than ever! Use what you\'ve learned to help our environment! 🌎\033[0m')
     print()
     for i in garden:
