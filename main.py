@@ -91,6 +91,7 @@ def potion_brewing():
     print('"First, we need to gather some rare magic ingredients from my grotto!", says Master Oakley.')
     time.sleep(2)
     print('...')
+    play_potion_magic_sounds()
     time.sleep(1)
     print('"Aha! I\'ve found what we need. Lets get started!"')
     time.sleep(2)
@@ -328,14 +329,52 @@ def play_losing_theme():
 def play_water_sound():
     water_sound = 'game sounds/sound effects/water_dripping.mp3'
     water_sound = pygame.mixer.Sound(water_sound)
-    water_sound.set_volume(0.2)
+    water_sound.set_volume(0.3)
     water_sound.play(3)
 #Now, I will make a magical flourish sound effect for the garden getting a new plant
 def play_chime_sound():
     chime_sound = 'game sounds/sound effects/magical_chime.mp3'
     chime_sound = pygame.mixer.Sound(chime_sound)
-    chime_sound.set_volume(0.2)
+    chime_sound.set_volume(0.3)
     chime_sound.play()
+#Now I will make a correct sound effect
+def play_correct_sound():
+    correct_sound = 'game sounds/sound effects/correct_ding.mp3'
+    correct_sound = pygame.mixer.Sound(correct_sound)
+    correct_sound.set_volume(0.3)
+    correct_sound.play()
+#Now I will make an error sound effect 
+def play_error_sound():
+    error_sound = 'game sounds/sound effects/error_sound.mp3'
+    error_sound = pygame.mixer.Sound(error_sound)
+    error_sound.set_volume(0.3)
+    error_sound.play()
+#Now I'm gonna make a function for the potion brewing sound effect. I will use this when the potion is being brewed.
+def play_potion_magic_sounds():
+    toadstool = 'game sounds/sound effects/potion_sound1.mp3'
+    lightning = 'game sounds/sound effects/potion_sound2.mp3'
+    fairy_dust = 'game sounds/sound effects/potion_sound3.mp3'
+    unicorn_hair = 'game sounds/sound effects/potion_sound4.mp3'
+    gem = 'game sounds/sound effects/potion_sound5.mp3'
+    toadstool = pygame.mixer.Sound(toadstool)
+    lightning = pygame.mixer.Sound(lightning)
+    fairy_dust = pygame.mixer.Sound(fairy_dust)
+    unicorn_hair = pygame.mixer.Sound(unicorn_hair)
+    gem = pygame.mixer.Sound(gem)
+    toadstool.set_volume(0.3)
+    lightning.set_volume(0.3)
+    fairy_dust.set_volume(0.3)
+    unicorn_hair.set_volume(0.3)
+    gem.set_volume(0.3)
+    toadstool.play()
+    time.sleep(1)
+    lightning.play()
+    time.sleep(1)
+    fairy_dust.play()
+    time.sleep(1)
+    unicorn_hair.play()
+    time.sleep(1)
+    gem.play()
 ############################################################################################################################################
 #Game section:
 linebreak()
@@ -489,6 +528,7 @@ while quests_completed < len(quests):
     done = input('Type "done" when you\'ve finished the quest! ').strip().lower()
     print()
     if done == 'done':
+        play_correct_sound()
         print(f'{complete_messages[quests_completed]} {player_name}! You have completed the quest!')
         print()
         time.sleep(2)
@@ -683,8 +723,10 @@ for question in quiz_questions:
     print(f'Question: {quiz_questions[question]}')
     user_answer = input('Type answer here: ').strip().lower()
     if user_answer in quiz_answers[question]:
+        play_correct_sound()
         print('\033[0;32mCorrect ✅\033[0m')
     else:
+        play_error_sound()
         print('\033[0;31mIncorrect ❌\033[0m')
         lives -=1
         if lives == 0:
