@@ -94,16 +94,19 @@ def potion_brewing():
     time.sleep(1)
     print('"Aha! I\'ve found what we need. Lets get started!"')
     time.sleep(2)
-    play_potion_magic_sounds()
+    play_toad_stool() #added new toadstool sound effect here
     print('"A touch of toadstool"')
     print('🍄🍄🍄')
     time.sleep(2)
+    play_lightning() #added new lightning sound effect here
     print('"A dash of lightning. Just a little!')
     print('⚡️')
     time.sleep(2)
+    play_fairy_dust() #added new fairy dust sound effect here
     print('"A pinch of fairy dust')
     print('✨✨✨✨')
     time.sleep(2)
+    play_unicorn_hair() #added new unicorn hair sound effect here
     print('"And some unicorn hair!"')
     print('🦄🦄🦄')
     print('"And now, for the most important ingredient. Your garden!"\n')
@@ -118,6 +121,7 @@ def potion_brewing():
         del temp_garden[-1]
         time.sleep(1)
         count +=1
+    play_gem() #added new gem sound effect here
     time.sleep(1)
     print('⛧°. ⋆༺☾𖤓༻⋆. °⛧')
     gem ='✨💎✨'
@@ -351,31 +355,37 @@ def play_error_sound():
     error_sound.set_volume(0.3)
     error_sound.play()
 #Now I'm gonna make a function for the potion brewing sound effect. I will use this when the potion is being brewed.
-def play_potion_magic_sounds():
+#Nevermind that didn't work. I will make separate sound effects for each of the ingredients being added to the potion.
+def play_toad_stool():
     toadstool = 'game sounds/sound effects/potion_sound1.mp3'
-    lightning = 'game sounds/sound effects/potion_sound2.mp3'
-    fairy_dust = 'game sounds/sound effects/potion_sound3.mp3'
-    unicorn_hair = 'game sounds/sound effects/potion_sound4.mp3'
-    gem = 'game sounds/sound effects/potion_sound5.mp3'
     toadstool = pygame.mixer.Sound(toadstool)
-    lightning = pygame.mixer.Sound(lightning)
-    fairy_dust = pygame.mixer.Sound(fairy_dust)
-    unicorn_hair = pygame.mixer.Sound(unicorn_hair)
-    gem = pygame.mixer.Sound(gem)
     toadstool.set_volume(0.4)
-    lightning.set_volume(0.4)
-    fairy_dust.set_volume(0.4)
-    unicorn_hair.set_volume(0.4)
-    gem.set_volume(0.4)
     toadstool.play()
-    time.sleep(2)
+    time.sleep(1)
+def play_lightning():
+    lightning = 'game sounds/sound effects/potion_sound2.mp3'
+    lightning = pygame.mixer.Sound(lightning)
+    lightning.set_volume(0.4)
     lightning.play()
-    time.sleep(2)
+    time.sleep(1)
+def play_fairy_dust():
+    fairy_dust = 'game sounds/sound effects/potion_sound3.mp3'
+    fairy_dust = pygame.mixer.Sound(fairy_dust)
+    fairy_dust.set_volume(0.4)
     fairy_dust.play()
-    time.sleep(2)
+    time.sleep(1)
+def play_unicorn_hair():
+    unicorn_hair = 'game sounds/sound effects/potion_sound4.mp3'
+    unicorn_hair = pygame.mixer.Sound(unicorn_hair)
+    unicorn_hair.set_volume(0.4)
     unicorn_hair.play()
-    time.sleep(5)
+    time.sleep(1)
+def play_gem():
+    gem = 'game sounds/sound effects/potion_sound5.mp3'
+    gem = pygame.mixer.Sound(gem)
+    gem.set_volume(0.4)
     gem.play()
+    time.sleep(1)
 ############################################################################################################################################
 #Game section:
 linebreak()
