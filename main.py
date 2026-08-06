@@ -94,20 +94,20 @@ def potion_brewing():
     time.sleep(1)
     print('"Aha! I\'ve found what we need. Lets get started!"')
     time.sleep(2)
-    play_toad_stool() #added new toadstool sound effect here
     print('"A touch of toadstool"')
+    play_toad_stool() #added new toadstool sound effect here
     print('🍄🍄🍄')
     time.sleep(2)
-    play_lightning() #added new lightning sound effect here
     print('"A dash of lightning. Just a little!')
+    play_lightning() #added new lightning sound effect here
     print('⚡️')
     time.sleep(2)
-    play_fairy_dust() #added new fairy dust sound effect here
     print('"A pinch of fairy dust')
+    play_fairy_dust() #added new fairy dust sound effect here
     print('✨✨✨✨')
     time.sleep(2)
-    play_unicorn_hair() #added new unicorn hair sound effect here
     print('"And some unicorn hair!"')
+    play_unicorn_hair() #added new unicorn hair sound effect here
     print('🦄🦄🦄')
     print('"And now, for the most important ingredient. Your garden!"\n')
     print('You see, those aren\'t just any plants. Together, they become a rare, powerful jewel called a Lux Roboris.\n')
@@ -121,9 +121,9 @@ def potion_brewing():
         del temp_garden[-1]
         time.sleep(1)
         count +=1
+    print('⛧°. ⋆༺☾𖤓༻⋆. °⛧')
     play_gem() #added new gem sound effect here
     time.sleep(1)
-    print('⛧°. ⋆༺☾𖤓༻⋆. °⛧')
     gem ='✨💎✨'
     print(gem)
     print('"Now, to brew the potion. 🪄"')
@@ -767,6 +767,7 @@ if lives> 0:
     print()
     for i in garden:
         print(i, end ="")
+    print()
 else:
     sad_ending()
     print()
