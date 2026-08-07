@@ -162,20 +162,20 @@ quiz_questions = {
 quiz_answers = {
                 'Q1':['true','t'],
                 'Q2':['false','f'],
-                'Q3':['reuse','Reuse','REUSE','Re-use','re-use','RE-USE'],
-                'Q4':['bike','BIKE','Bike','bicycle','Bicycle','BICYCLE','scooter','Scooter','SCOOTER','skateboard','Skateboard','SKATEBOARD'],
-                'Q5':['b','B','B)'],
-                'Q6':['b','B','B)'],
-                'Q7':['a','A','A)'],
-                'Q8':['c','C','C)'],
+                'Q3':['reuse', 're-use',],
+                'Q4':['bike','bicycle','scooter','skateboard',],
+                'Q5':['b','b)'],
+                'Q6':['b','b)'],
+                'Q7':['a','a)'],
+                'Q8':['c','c)'],
                 }
-#Adding a list of responses for Nox to say if the user gets a question wrong. This will make the game more fun and interactive! 
-#This goes along iowth the nox_health bars and play attacks idea!
-nox_battle_responses = ['\033[0;31mNO! IMPOSSIBLE!\033[0m', 
-                        '\033[0;31mHOW IS THIS POSSIBLE?!\033[0m',
-                        '\033[0;31mI WILL HAVE MY REVENGE!\033[0m', 
-                        '\033[0;31mMY SHADOW...\033[0m',
-                        '\033[0;31m WHAT HAVE YOU DONE?!\033[0m',]
+#Adding a dictionary of responses for Nox to say if the user gets a question wrong. This will make the game more fun and interactive! 
+#This goes along with the nox_health bars and play attacks idea!
+nox_battle_responses = {4: '\033[0;31mNO! IMPOSSIBLE!\033[0m',
+                        3: '\033[0;31mHOW IS THIS POSSIBLE?!\033[0m',
+                        2: '\033[0;31mI WILL HAVE MY REVENGE!\033[0m',
+                        1: '\033[0;31mMY SHADOW...\033[0m',
+                        0: '\033[0;31m WHAT HAVE YOU DONE?!\033[0m'}
 def good_ending():
     #make good ending here
     clear()
@@ -749,10 +749,12 @@ for question in quiz_questions:
         nox_health_bar = ('🟩'*nox_health + '🟥'*(5-nox_health)) #make nox-health bar
         input('Press enter to attack ⚔️⚔️⚔️ ...')
         time.sleep(2)
-        print('...')
-        print(nox_battle_responses[nox_health]) #Nox's response to the user's correct answer
+        print('...\n')
+        print(nox_battle_responses[nox_health]) #Nox's response to the user's correct answer makes key in nox_battle_responses dictionary
         print(f'Nox\'s health: {nox_health_bar}')
-        print(f'Your lives:    {lives*'❤️'}')
+        print(f"'Your lives:    {lives*'❤️'}")
+        if nox_health == 0:
+            break
     else:
         play_error_sound()
         print('\033[0;31mIncorrect ❌\033[0m')
@@ -774,8 +776,7 @@ for question in quiz_questions:
     clear()
     print()
 stop_music()
-#Now We need to check how many lives the player has left. As long as they have more than 0, they get the happy ending. 
-if lives> 0:
+if nox_health == 0: #changed to nox_health because that is the new winning condition.
     good_ending()
     print()
     print('\033[0;32mYou are the Eco_Warrior ⚔️🌎⚔️ ! Our world needs you now more than ever! Use what you\'ve learned to help our environment! 🌎\033[0m')
