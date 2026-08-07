@@ -169,6 +169,13 @@ quiz_answers = {
                 'Q7':['a','A','A)'],
                 'Q8':['c','C','C)'],
                 }
+#Adding a list of responses for Nox to say if the user gets a question wrong. This will make the game more fun and interactive! 
+#This goes along iowth the nox_health bars and play attacks idea!
+nox_battle_responses = ['\033[0;31mNO! IMPOSSIBLE!\033[0m', 
+                        '\033[0;31mHOW IS THIS POSSIBLE?!\033[0m',
+                        '\033[0;31mI WILL HAVE MY REVENGE!\033[0m', 
+                        '\033[0;31mMY SHADOW...\033[0m',
+                        '\033[0;31m WHAT HAVE YOU DONE?!\033[0m',]
 def good_ending():
     #make good ending here
     clear()
@@ -729,28 +736,36 @@ clear()
 time.sleep(3)
 linebreak()
 #Main quests sequence is comeplete! Now, I will make the final boss battle sequence. It will be an 8 question quiz, user has 3 lives. 
+#After some suggestions from my tester, I will add a feature where the user's right answer lower's Nox's health.
+nox_health = 5 #min number of questions the user has to answer correctly to defeat Nox. 
 for question in quiz_questions:
     print()
     print(f'Question: {quiz_questions[question]}')
     user_answer = input('Type answer here: ').strip().lower()
     if user_answer in quiz_answers[question]:
         play_correct_sound()
-        print('\033[0;32mCorrect ✅\033[0m')
+        print('\033[0;32mCorrect ✅\033[0m\n')
+        nox_health -= 1# take away one health point from Nox for each correct answer
+        nox_health_bar = ('🟩'*nox_health + '🟥'*(5-nox_health)) #make nox-health bar
+        input('Press enter to attack ⚔️⚔️⚔️ ...')
+        time.sleep(2)
+        print('...')
+        print(nox_battle_responses[nox_health]) #Nox's response to the user's correct answer
+        print(f'Nox\'s health: {nox_health_bar}')
+        print(f'Your lives:    {lives*'❤️'}')
     else:
         play_error_sound()
         print('\033[0;31mIncorrect ❌\033[0m')
+        print('Nox attacks you! \n')
         lives -=1
         if lives == 0:
             print('You lost! The potion is wearing off, you must retreat!\n')
             time.sleep(3)
             print('\033[0;31mI\'VE ENTERTAINED YOU LONG ENOUGH. TIME TO FEAST.\033[0m\n')
-            print()
             input('Press enter to flee the Briarwood:')
             break
         if lives == 1:
             print('You are down to your last life! Be careful! Lives: ❤️ \n')
-            time.sleep(1)
-            print()
             print(f'\033[0;31mNOT SO CONFIDENT NOW ARE YOU {player_name}! YOU\'LL TASTE DELICIOUS.\033[0m')
         if lives >=2:
             print(f'You now have {lives} lives:', end ='')
