@@ -583,7 +583,7 @@ print('Congratulations! You have finished all of the quests and filled your gard
 for i in garden:
     print(i, end ="")
 print()
-time.sleep(3)
+time.sleep(2)
 clear()
 
 #Now, to make the end sequence of the story before the character enters the Briarwood (fictional forest where the villan lives)
@@ -710,7 +710,7 @@ if climax_feeling == '1':
 elif climax_feeling == '2':
     print('\033[0;31mYOU\'RE LYING. HUMANS. ALWAYS TRYING TO WEASEL THEIR WAY OUT OF THINGS!\n')
 elif climax_feeling == '3':
-    print('...')
+    print('...\n')
     time.sleep(2)
     print('\033[0;31mYOU\'RE WASTING YOUR TIME.\033[0m\n')
 time.sleep(3)
@@ -751,8 +751,10 @@ for question in quiz_questions:
         time.sleep(2)
         print('...\n')
         print(nox_battle_responses[nox_health]) #Nox's response to the user's correct answer makes key in nox_battle_responses dictionary
+        print()
         print(f'Nox\'s health: {nox_health_bar}')
-        print(f"'Your lives:    {lives*'❤️'}")
+        print(f"Your lives:    {lives*'❤️'}")
+        time.sleep(2)
         if nox_health == 0:
             break
     else:
@@ -769,11 +771,14 @@ for question in quiz_questions:
         if lives == 1:
             print('You are down to your last life! Be careful! Lives: ❤️ \n')
             print(f'\033[0;31mNOT SO CONFIDENT NOW ARE YOU {player_name}! YOU\'LL TASTE DELICIOUS.\033[0m')
+            time.sleep(2)
         if lives >=2:
             print(f'You now have {lives} lives:', end ='')
             print(lives*'❤️ ')
+            time.sleep(2)
     time.sleep(4)
     clear()
+    play_gem()
     print()
 stop_music()
 if nox_health == 0: #changed to nox_health because that is the new winning condition.
